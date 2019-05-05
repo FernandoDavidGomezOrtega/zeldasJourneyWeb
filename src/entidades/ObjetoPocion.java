@@ -1,11 +1,11 @@
-package zeldasjourney.objetoBeneficio;
+package entidades;
 
 /**
  * Creado por @sergiotremosa el xx/xx/2019.
  * Crear objetopocion de objetopadre
  */
 
-import zeldasjourney.objetos.objetoPadre.ObjetoPadre;
+import entidades.ObjetoPadre;
 
 public class ObjetoPocion extends ObjetoPadre {
 	/*

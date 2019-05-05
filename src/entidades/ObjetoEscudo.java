@@ -1,6 +1,6 @@
-package zeldasjourney.objetos.objetoHijo;
+package entidades;
 
-import zeldasjourney.objetos.objetoPadre.ObjetoPadre;
+import entidades.ObjetoPadre;
 
 /**
  * Creado por @sergiotremosa el xx/xx/2019.

@@ -21,6 +21,8 @@
 <body>
 	<form action="Controller" method="post" id="form" onsubmit="return validarPassword()">
 	<input type="hidden" value="dosignup" name="opcion"/>
+		<h3>Regístrate como usuario</h3>
+		<hr>
 		<table>
 			<tr>
 				<td>Nombre: </td>
@@ -43,7 +45,7 @@
 				<td><input type="password" name="confirmar_password_usuario" id="confirmar_password_usuario"/></td>
 			</tr>
 			<tr>
-				<td colspan = 2><input type="submit" name="submit"/>
+				<td colspan = 2><input type="submit" name="submit" value="Registrarme"/>
 		</table>
 		 
 	</form>

@@ -1,4 +1,4 @@
-package zeldasjourney.personaje.PersonajePadre;
+package entidades;
 
 
 /**

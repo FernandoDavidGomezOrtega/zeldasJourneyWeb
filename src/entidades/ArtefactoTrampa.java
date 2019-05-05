@@ -1,4 +1,4 @@
-package zeldasjourney.artefactoEnemigo;
+package entidades;
 
 /**
  * Creado por @sergiotremosa el xx/xx/2019.
@@ -6,7 +6,7 @@ package zeldasjourney.artefactoEnemigo;
  */
 
 import java.util.Scanner;
-import zeldasjourney.objetos.objetoPadre.ObjetoPadre;
+import entidades.ObjetoPadre;
 
 
 public class ArtefactoTrampa extends ObjetoPadre{

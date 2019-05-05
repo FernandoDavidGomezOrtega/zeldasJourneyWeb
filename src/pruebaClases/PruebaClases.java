@@ -1,15 +1,15 @@
-package zeldasjourney;
+package pruebaClases;
 
 import java.util.Scanner;
 
-import zeldasjourney.artefactoEnemigo.ArtefactoEnemigo;
-import zeldasjourney.artefactoEnemigo.ArtefactoTrampa;
-import zeldasjourney.objetoBeneficio.ObjetoPocion;
-import zeldasjourney.objetos.objetoHijo.ObjetoArma;
-import zeldasjourney.objetos.objetoHijo.ObjetoEscudo;
-import zeldasjourney.personaje.personajesHijo.EnemigoComun;
-import zeldasjourney.personaje.personajesHijo.PersonajeEnemigoJefe;
-import zeldasjourney.personaje.personajesHijo.PersonajeHeroe;
+import entidades.ArtefactoEnemigo;
+import entidades.ArtefactoTrampa;
+import entidades.ObjetoPocion;
+import entidades.ObjetoArma;
+import entidades.ObjetoEscudo;
+import entidades.EnemigoComun;
+import entidades.PersonajeEnemigoJefe;
+import entidades.PersonajeHeroe;
 
 
 /**

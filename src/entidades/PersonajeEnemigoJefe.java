@@ -1,7 +1,7 @@
-package zeldasjourney.personaje.personajesHijo;
+package entidades;
 
 
-import zeldasjourney.personaje.PersonajePadre.PersonajePadre;
+import entidades.PersonajePadre;
 
 /**
  * Creado por @sergiotremosa el xx/xx/2019.

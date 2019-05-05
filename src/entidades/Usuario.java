@@ -1,9 +1,9 @@
-package zeldasjourney.usuario;
+package entidades;
 
 import java.util.ArrayList;
 import java.util.Date;
 
-import zeldasjourney.personaje.personajesHijo.PersonajeHeroe;
+import entidades.PersonajeHeroe;
 
 /**
  * Creado por @sergiotremosa el xx/xx/2019.

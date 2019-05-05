@@ -1,6 +1,6 @@
-package zeldasjourney.dao;
+package dao;
 
-import zeldasjourney.personaje.personajesHijo.PersonajeEnemigoJefe;
+import entidades.PersonajeEnemigoJefe;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
