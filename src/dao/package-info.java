@@ -5,4 +5,4 @@
  * @author casa
  *
  */
-package zeldasjourney.dao;
+package dao;

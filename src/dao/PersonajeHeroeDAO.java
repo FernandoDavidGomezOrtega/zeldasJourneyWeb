@@ -1,7 +1,7 @@
-package zeldasjourney.dao;
+package dao;
 
-import zeldasjourney.personaje.personajesHijo.PersonajeHeroe;
-import zeldasjourney.usuario.Usuario;
+import entidades.PersonajeHeroe;
+import entidades.Usuario;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

@@ -1,7 +1,7 @@
-package zeldasjourney.objetos.objetoHijo;
+package entidades;
 
 
-import zeldasjourney.objetos.objetoPadre.ObjetoPadre;
+import entidades.ObjetoPadre;
 
 import java.util.Objects;
 

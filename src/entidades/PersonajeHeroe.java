@@ -1,14 +1,14 @@
-package zeldasjourney.personaje.personajesHijo;
+package entidades;
 
 import java.util.Scanner;
-import zeldasjourney.usuario.Usuario;
+import entidades.Usuario;
 
-import zeldasjourney.artefactoEnemigo.ArtefactoEnemigo;
-import zeldasjourney.artefactoEnemigo.ArtefactoTrampa;
-import zeldasjourney.objetoBeneficio.ObjetoPocion;
-import zeldasjourney.objetos.objetoHijo.ObjetoArma;
-import zeldasjourney.objetos.objetoHijo.ObjetoEscudo;
-import zeldasjourney.objetos.objetoPadre.ObjetoPadre;
+import entidades.ArtefactoEnemigo;
+import entidades.ArtefactoTrampa;
+import entidades.ObjetoPocion;
+import entidades.ObjetoArma;
+import entidades.ObjetoEscudo;
+import entidades.ObjetoPadre;
 
 /**
  * Creado por @sergiotremosa el xx/xx/2019.

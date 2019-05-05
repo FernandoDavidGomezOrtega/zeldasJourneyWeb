@@ -1,4 +1,4 @@
-package zeldasjourney.dao;
+package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.sql.Statement;
-import zeldasjourney.personaje.personajesHijo.EnemigoComun;
+import entidades.EnemigoComun;
 
 /**
  * DAO for object EnemigoComun

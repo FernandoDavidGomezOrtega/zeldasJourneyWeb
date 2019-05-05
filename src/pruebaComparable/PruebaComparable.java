@@ -1,6 +1,6 @@
-package zeldasjourney.objetos;
+package pruebaComparable;
 
-import zeldasjourney.objetos.objetoPadre.ObjetoPadre;
+import entidades.ObjetoPadre;
 
 import java.util.ArrayList;
 import java.util.Collections;

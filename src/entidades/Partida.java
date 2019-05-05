@@ -1,8 +1,8 @@
-package zeldasjourney.partida;
+package entidades;
 
-import zeldasjourney.objetos.objetoHijo.ObjetoArma;
-import zeldasjourney.objetos.objetoHijo.ObjetoArtefacto;
-import zeldasjourney.objetos.objetoHijo.ObjetoEscudo;
+import entidades.ObjetoArma;
+import entidades.ObjetoArtefacto;
+import entidades.ObjetoEscudo;
 
 import java.util.ArrayList;
 import java.util.List;

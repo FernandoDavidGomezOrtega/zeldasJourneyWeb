@@ -1,11 +1,11 @@
-package zeldasjourney.artefactoEnemigo;
+package entidades;
 
 /**
  * Creado por @sergiotremosa el xx/xx/2019.
  * Crear artefactoenemigo de objetopadre.
  */
 
-import zeldasjourney.objetos.objetoPadre.ObjetoPadre;
+import entidades.ObjetoPadre;
 
 public class ArtefactoEnemigo extends ObjetoPadre{
 	

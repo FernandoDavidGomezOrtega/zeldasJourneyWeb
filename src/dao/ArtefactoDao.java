@@ -1,8 +1,8 @@
-package zeldasjourney.dao;
+package dao;
 
-import zeldasjourney.jdbc.ConnectionDB;
-import zeldasjourney.objetos.objetoHijo.ObjetoArma;
-import zeldasjourney.objetos.objetoHijo.ObjetoArtefacto;
+import dao.ConnectionDB;
+import entidades.ObjetoArma;
+import entidades.ObjetoArtefacto;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;

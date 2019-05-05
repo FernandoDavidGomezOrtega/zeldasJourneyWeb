@@ -1,4 +1,4 @@
-package zeldasjourney.objetos.objetoPadre;
+package entidades;
 
 import java.util.Objects;
 
