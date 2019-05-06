@@ -94,7 +94,7 @@
         </div>
         <div class="row pt-4 mt-3 ">
           <div class="col">
-            <p class="designed-by">Designed by: MSF Team <br>Proyecto P 6 UOC 2019</p>
+            <p class="designed-by">Designed by: MSF Team <br>Proyecto P_6 UOC 2019</p>
           </div>
         </div>
       </div>
