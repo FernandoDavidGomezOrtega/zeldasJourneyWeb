@@ -1,8 +1,8 @@
-package zeldasjourney;
+package testDAO;
 
-import zeldasjourney.dao.EnemigoComunDAO;
-import zeldasjourney.jdbc.ConnectionDB;
-import zeldasjourney.personaje.personajesHijo.EnemigoComun;
+import dao.EnemigoComunDAO;
+import dao.ConnectionDB;
+import entidades.EnemigoComun;
 import java.sql.Connection;
 
 /**
