@@ -1,10 +1,12 @@
-package zeldasjourney.dao;
+package testDAO;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import zeldasjourney.jdbc.ConnectionDB;
-import zeldasjourney.objetos.objetoHijo.ObjetoArma;
+
+import dao.ArmasDao;
+import dao.ConnectionDB;
+import entidades.ObjetoArma;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -12,7 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static zeldasjourney.jdbc.ConnectionDB.printSQLException;
+import static dao.ConnectionDB.printSQLException;
 
 class ArmasDaoTest {
 

@@ -1,0 +1,146 @@
+.logoPortada{
+	height: 100%;
+	/*width: 200px;*/
+}
+
+.crear-seleccionar-personaje{
+	height: 80%;
+	/*width: 200px;*/
+}
+
+.btn-blue{
+  background-color: #3471fb;
+  color: white;
+}
+
+.btn-blue:hover{
+  background-color: #6a9a32;
+}
+
+#header img{
+  width: 100px;
+}
+
+.blue{
+  color: #3471fb;
+}
+
+.color-white{
+  color: white;
+}
+
+.maindiv {
+  max-height: 70vh;
+  object-fit: cover;
+  filter: grayscale(0%);
+}
+
+#carousel{
+  position: relative;
+}
+
+#carousel .overlay{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+}
+
+.fondo-gris{
+	background-color: gray;
+}
+
+#carousel .overlay .container,
+#carousel .overlay .row {
+  height: 100%;
+}
+
+h2{
+  background-color: #6a9a32;
+}
+
+p{
+  text-align: justify;
+}
+
+a{
+  text-align:center;
+}
+
+.text-align-right{
+  text-align: right;
+}
+
+.text-align-left{
+  text-align: left;
+}
+
+.text-align-center{
+  text-align: center;
+}
+
+.designed-by{
+  text-align: center;
+  color: #83e90f;
+}
+
+.green{
+  text-align: center;
+  color: #83e90f;
+}
+
+.sin-fondo{
+  background-color: inherit;
+}
+
+blockquote{
+  background-color: #c2c2bc;
+}
+
+#quienes_somos {
+  background-color: #343a40;
+  color:white;
+}
+
+#quienes_somos img{
+  max-width: 100%;
+}
+
+#map {
+  display: flex;
+  justify-content: center;
+  width: 70%;
+  height: 400px;
+  box-shadow: 5px 5px 5px #888;
+}
+
+.centrado{
+  display: flex;
+  justify-content: center;
+}
+
+.izquierda{
+  display: flex;
+  justify-content: left;
+}
+
+.derecha{
+  display: flex;
+  justify-content: right;
+}
+
+.space-around{
+  display: flex;
+  justify-content: center;
+}
+
+#footer{
+  background: linear-gradient(90deg, #1f2025 0, #383942 25%, #41434d);
+}
+
+#footer a{
+  color:white;
+}
