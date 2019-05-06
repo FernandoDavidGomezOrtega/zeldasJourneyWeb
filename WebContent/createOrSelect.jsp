@@ -39,11 +39,11 @@
 			
 					<div class="row">
 				<div class="col-6 centrado">
-					<a class="  btn btn-blue  mb-5 pl-5 pr-5" href="menu.jsp">Crear un personaje</a>
+					<a class="  btn btn-blue  mb-5 pl-5 pr-5" href="createHero.jsp">Crear un personaje</a>
 				</div>
 				
 				<div class="col-6 centrado">
-					<a class="  btn btn-blue  mb-5 pl-5 pr-5" href="menu.jsp">Seleccionar un personaje</a>
+					<a class="  btn btn-blue  mb-5 pl-5 pr-5" href="selectHero.jsp">Seleccionar un personaje</a>
 				</div>
 			</div>	
 		</div>
@@ -63,7 +63,7 @@
         </div>
         <div class="row pt-4 mt-3 ">
           <div class="col">
-            <p class="designed-by">Designed by: MSF Team <br>Proyecto P 6 UOC 2019</p>
+            <p class="designed-by">Designed by: MSF Team <br>Proyecto P_6 UOC 2019</p>
           </div>
         </div>
       </div>
