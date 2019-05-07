@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Zelda's Journey</title>
+<title>Registro</title>
 
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 <link href="bootstrap/css/main.css" rel="stylesheet" type="text/css"/>

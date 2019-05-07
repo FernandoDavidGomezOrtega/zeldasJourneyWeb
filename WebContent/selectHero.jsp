@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Zelda's Journey</title>
+<title>Seleccionar personaje</title>
 
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 <link href="bootstrap/css/main.css" rel="stylesheet" type="text/css"/>
@@ -54,9 +54,9 @@
           </div>
           <div class="col-12 col-md-6 col-lg-4 mb-4">
             <div class="card">
-              <img class="card-img-top mt-3 mb-5" src="images/astro-boy.png" alt="Astro boy">
+              <img class="card-img-top mt-4 mb-4" src="images/astro-boy.png" alt="Astro boy">
               <div class="card-body">
-                <div class="badges mt-3">
+                <div class="badges mt-4">
                   <span class="badge badge-secondary">Super velocidad</span>
                   <span class="badge badge-danger">Viajes interplanetarios</span>
                 </div>
@@ -118,7 +118,7 @@
                   <span class="badge badge-info">Diseño de trampas</span>
                 </div>
                 <h5 class="card-title">Link</h5>
-                <p class="card-text">Es un gran espadachín, arquero, jinete, ejecutante musical, y tiene una gran habilidad para el combate combate en modo duelo. El más hábil de todos</p>
+                <p class="card-text">Es un gran espadachín, arquero, jinete, ejecutante musical, y tiene una gran habilidad para el combate en modo duelo. El más hábil de todos.</p>
                 <form action="cargarPartida.jsp">
                 	<div class="centrado">
                 		<input class="  btn btn-blue  mb-2 pl-5 pr-5" type="submit" name="hero" value="Seleccionar" />
