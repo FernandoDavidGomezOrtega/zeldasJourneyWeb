@@ -4,25 +4,10 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Registro</title>
+<title>Describe tu  personaje</title>
 
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 <link href="bootstrap/css/main.css" rel="stylesheet" type="text/css"/>
-
-<%--
-<script type="text/javascript">
-	function validarPassword(){
-		var passw= document.form.password_usuario.value;
-		var validapassw= document.form.confirmar_password_usuario.value;
-		
-		if	(passw != validapassw){
-			alert("Las contraseñas no coinciden");
-			return false;
-		} else return true;
-	}
-</script>
---%>
-
 </head>
 
 
@@ -33,66 +18,50 @@
         <span class="navbar-brand" >
           <img  src="images/link.jpg" alt="game logo">
           <b class="ml-5">ZELDA'S JOURNEY</b> <i class="ml-3 designed-by">the challenge</i>
-        </span> 
-        
-     
+        </span>       
       </div>
 
     </nav>
     <!-- /Header -->
 
-    <!-- Main -->
-	<section id="" class=" fondo-verde-claro  mb-3 mt-4 mb-4 centrado">
-	
-	  <div class="container">
-        <form id="form"  action="Controller" method="post" onsubmit="return validarPassword()">
-        <input type="hidden" value="dosignup" name="opcion"/>
-        	<div class="row centrado">
-          <div class=" mb-2 mt-3 pt-3  ">
-            <h3 class="text-align-center sin-fondo">Date de alta</h3>
+<section id="personajes" class="mt-4 mb-4 fondo-amarillo">
+      <div class="container  ">
+      	<div class="row pt-3 pb-3">
+      		<div class="col-lg-4 ">
+	      		<div class="card">
+	              <img class="card-img-top" src="images/batman.jpg" alt="Capitán América">
+	         
+	            </div>
+      		</div>
+      		<div class="  col-lg-8">
+            <form action="index.jsp" method="post">
+            	<div class="col text-center mt-3 mb-4 ">
+            		<h2 class="pb-2 ">Describe tu personaje</h2>
+          		</div>
+              <div class="form-row mb-2">
+                <div class="form-group col-12 col-md-6">
+                  <input type="text" class="form-control" placeholder="Super poder 1" required="required" autofocus/>
+                </div>
+                <div class="form-group col-12 col-md-6">
+                  <input type="text" class="form-control" placeholder="Super poder 2" required="required"/>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col">
+                  <textarea name="text" class="form-control form-control-lg" required="required" maxlength="300" rows="5" placeholder="Biografía"></textarea>
+                </div>
+              </div>
+              <div class="form-row centrado mt-4">
+                <div class="col-md-4 centrado">
+                  <button type="submit" class="btn btn-blue btn-block">Ok</button>
+                </div>
+              </div>
+            </form>
           </div>
-        </div>
-
-
-        <table class="table col-6 offset-3 mt-3">
-          <tbody>
-            <tr class="table-primary">
-              <th scope="row">Nombre:</th>
-              <td><input type="text" name="nombre_usuario" required="required" autofocus/></td>
-            </tr>
-            <tr class="table-secondary">
-              <th scope="row">Apellido:</th>
-              <td><input type="text" name="apellido_usuario" required="required"/></td>
-            </tr>
-            <tr class="table-success">
-              <th scope="row">Nick:</th>
-              <td><input type="text" name="nick_usuario" required="required"/></td>
-            </tr>
-            <tr class="table-danger">
-              <th scope="row">Password:</th>
-              <td><input type="password" name="password_usuario" id="password_usuario" required="required"/></td>
-            </tr>
-            
-            <%--
-            <tr class="table-warning">
-              <th scope="row">Confirmar Password:</th>
-              <td><input type="password" name="confirmar_password_usuario" id="confirmar_password_usuario"/></td>
-            </tr>
-            --%>
-            
-          </tbody>
-        </table>
-
-        <div class="row centrado">
-          <div class="   pb-5 pt-4">
-            <input type="submit" class=" btn btn-blue mt-2 mb-2 pl-5 pr-5" name="submit" value="Registrarme"/>
-          </div>
-        </div>
-        </form>
-      
+      	</div>
       </div>
     </section>
-    <!-- /Main -->
+    <!-- /Speakers -->
 
     <!-- Footer -->
     <footer id="footer" class="pb-4 pt-4">
