@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Crear o seleccionar personajes</title>
+<title>Crear o seleccionar personaje</title>
 
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 <link href="bootstrap/css/main.css" rel="stylesheet" type="text/css"/>
@@ -25,7 +25,7 @@
     <!-- /Header -->
 
     <!-- Main -->
-	<section id="" class=" fondo-gris  mb-3 mt-4 mb-4  ">
+	<section id="" class=" fondo-aqua  mb-3 mt-4 mb-4  ">
 		<div class="container">
 			<div class="row">
 				<div class="col-6 centrado">
@@ -39,7 +39,7 @@
 			
 					<div class="row">
 				<div class="col-6 centrado">
-					<a class="  btn btn-blue  mb-5 pl-5 pr-5" href="createHero.jsp">Crear un personaje</a>
+					<a class="  btn btn-blue  mb-5 pl-5 pr-5" href="createHeroPaso1.jsp">Crear un personaje</a>
 				</div>
 				
 				<div class="col-6 centrado">

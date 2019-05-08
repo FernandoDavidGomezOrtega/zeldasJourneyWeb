@@ -53,6 +53,22 @@
 	background-color: gray;
 }
 
+.fondo-amarillo{
+	background-color: #eeee11;
+}
+
+.fondo-aqua{
+	background-color: #11afb3;
+}
+
+.fondo-verde-claro{
+	background-color: #a2f47e;
+}
+
+.fondo-magenta{
+	background-color: #ca0732;
+}
+
 #carousel .overlay .container,
 #carousel .overlay .row {
   height: 100%;

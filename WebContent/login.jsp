@@ -42,7 +42,7 @@
     <!-- /Header -->
 
     <!-- Main -->
-	<section id="" class=" fondo-gris  mb-3 mt-5 mb-5 centrado">
+	<section id="" class=" fondo-magenta  mb-3 mt-5 mb-5 centrado">
 	
 	  <div class="container">
         <form id="form"  action="Controller" method="post" onsubmit="return validarPassword()">
@@ -59,11 +59,11 @@
 
             <tr class="table-success">
               <th scope="row">Nick:</th>
-              <td><input type="text" name="nick_usuario"/></td>
+              <td><input type="text" name="nick_usuario" required="required" autofocus/></td>
             </tr>
             <tr class="table-danger">
               <th scope="row">Password:</th>
-              <td><input type="password" name="password_usuario" id="password_usuario"/></td>
+              <td><input type="password" name="password_usuario" id="password_usuario"required="required"/></td>
             </tr>
 
             
