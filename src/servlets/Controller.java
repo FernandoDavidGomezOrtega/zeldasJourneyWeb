@@ -59,6 +59,7 @@ public class Controller extends HttpServlet {
 		case "login": url = "/login.jsp"; break;
 		case "signup": url = "/signup.jsp"; break;
 		case "dosignup": url = "/doSignUp.jsp"; break;
+		case "logout": url= "/doLogout.jsp"; break;
 		default: url="/";break; 
 		}
 		

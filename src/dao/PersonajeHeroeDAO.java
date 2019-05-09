@@ -79,6 +79,94 @@ public class PersonajeHeroeDAO {
 	}
 	
 	
+public PersonajeHeroe insertHeroeFromTemplate(Connection c, Usuario u, int idPlantilla) throws Exception {
+		
+		PreparedStatement stmt = null;
+		Statement stmt2=null;
+		int result = 0;
+		PreparedStatement pstmt = null;
+		PersonajeHeroe h = null;
+		try {
+			pstmt = c.prepareStatement("select * from plantilla_heroe where id_plantilla =?");
+			pstmt.setInt(1, idPlantilla);
+			
+			ResultSet rs = pstmt.executeQuery();
+			
+			rs.next();
+			
+			stmt = c.prepareStatement("INSERT INTO Heroe( FK_ID_Usuario, ataque, "+
+		"experiencia, movimiento, movimientoTurno, muerto, n_ataques, nombre, resistencia,"+
+					" turno, vida, vida_gastar, Super_ataque, fuerza, avatar_heroe, id_plantilla,super_poder_1, super_poder_2, descripcion) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+			stmt.setInt(1, u.getIdUsuario());
+			stmt.setDouble(2, rs.getDouble("ataque") );
+			stmt.setInt(3, 0);
+			stmt.setInt(4,  rs.getInt("movimiento"));
+			stmt.setInt(5,  rs.getInt("movimientoTurno"));
+			stmt.setInt(6,  0);
+			stmt.setInt(7, rs.getInt("n_ataques"));
+			stmt.setString(8,  rs.getString("nombre"));
+			stmt.setDouble(9,  rs.getDouble("resistencia"));
+			stmt.setInt(10, 1 );
+			stmt.setInt(11, rs.getInt("vida"));
+			stmt.setInt(12,  rs.getInt("vida_gastar"));
+			stmt.setInt(13, rs.getInt("super_ataque"));
+			stmt.setInt(14, rs.getInt("fuerza"));
+			stmt.setString(15,  rs.getString("avatar_heroe"));
+			stmt.setInt(16, rs.getInt("id_plantilla"));
+			stmt.setString(17, rs.getString("super_poder_1"));
+			stmt.setString(18, rs.getString("super_poder_2"));
+			stmt.setString(19, rs.getString("descripcion"));
+			
+			stmt.executeUpdate();
+			
+			h = new PersonajeHeroe();
+			h.setAtaque(rs.getDouble("ataque"));
+			h.setExperiencia(0);
+			h.setMovimiento(rs.getInt("movimiento"));
+			h.setMovimientoTurno(rs.getInt("movimientoTurno"));
+			h.setMuerto(false);
+			h.setNAtaques(rs.getInt("n_ataques"));
+			h.setNombre(rs.getString("nombre"));
+			h.setResistencia(rs.getDouble("resistencia"));
+			h.setTurno(true);
+			h.setVida(rs.getInt("vida"));
+			h.setVidaGastar(rs.getInt("vida_gastar"));
+			h.setSuperAtaque(rs.getInt("super_ataque"));
+			h.setFuerza(rs.getInt("fuerza"));
+			h.setAvatarHeroe(rs.getString("avatar_heroe"));
+			h.setSuperPoder1(rs.getString("super_poder_1"));
+			h.setSuperPoder2(rs.getString("super_poder_2"));
+			
+			stmt2 = c.createStatement();
+			
+			rs = stmt2.executeQuery("SELECT MAX(id_heroe) FROM heroe");
+			rs.next();
+			result = rs.getInt(1);
+			
+			h.setIDPropia(result);
+			
+			
+			
+			
+		} catch(SQLIntegrityConstraintViolationException e) {
+			e.printStackTrace();
+	
+		}catch (SQLException e) {
+			e.printStackTrace();
+	
+		}
+		try {
+			if (stmt!=null) stmt.close(); //cerramos el Statement
+		} catch (final SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return h;
+	}
+	
+	
+	
+	
 	/**
 	 * Method to update PersonajeHeroe in DB
 	 * @param c : Connection
