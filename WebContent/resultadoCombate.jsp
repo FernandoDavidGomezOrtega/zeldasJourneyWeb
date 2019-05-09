@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Stage 1</title>
+<title>Resultado del combate</title>
 
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 <link href="bootstrap/css/main.css" rel="stylesheet" type="text/css"/>
@@ -24,38 +24,36 @@
     </nav>
     <!-- /Header -->
 
-<section id="personajes" class="mt-4 mb-4 fondo-verde-claro">
+	<!-- Main -->
+	<section id="winner" class="mt-4 mb-4 fondo-amarillo">
       <div class="container  ">
-        <div class="row col-8 offset-2 mt-3">
+        <div class="row col-8 offset-2 mt-3 centrado">
           <div class="col text-center mt-3 mb-3  ">
-            <h2 class="pb-2 sin-fondo ">Stage 1    Fight!!</h2>
+            <h2 class=" sin-fondo ">Has vencido el combate !!</h2>
           </div>
         </div>
-        <div class="row centrado">
-          <div class="col-12 col-md-6 col-lg-2  mb-4">
-            <div class="card ">
-              <img class="card-img-top" src="images/superman.jpg" alt="Capitán América">
-            </div>
+        <div class="row centrado ">
+          <div class="col-lg-6 ">
+          	<img class="card-img-top mb-5" src="images/winnerStage.jpg" alt="Resultado del combate"/>
           </div>
-          <div class="col-12 col-md-6 col-lg-2 mb-4 ml-5 mr-5">
-            <div class="card ">
-              <img class="card-img" src="images/versus.png" alt="Capitán América">
-				
-            </div>
-			<div class="centrado">
-				<input class="  btn btn-blue  mb-2 mt-5 " type="submit" name="fight" value="Luchar !" />
-                <input type="hidden" value="fight"/>
+			<div class="col-lg-4">
+							<div class="row centrado">
+			<div class="col-lg-10 mt-5 pt-3 ">
+        		<a class="btn btn-blue btn-block offset-2" href="createOrSelect.jsp">Siguiente oponente</a>
+        	</div>
 			</div>
-          </div>
-          <div class="col-12 col-md-6 col-lg-2 mb-4">
-            <div class="card ">
-              <img class="card-img-top "  src="images/wonderWoman.jpg" alt="Capitán América">
-            </div>
-          </div>
+										<div class="row centrado">
+			<div class="col-lg-10 mt-5 pt-5 ">
+        		<a class="btn btn-magenta btn-block offset-2" href="index.jsp">Guardar y salir</a>
+        	</div>
+			</div>
+			</div>
+			
+			
         </div>
       </div>
     </section>
-    <!-- /Speakers -->
+    <!-- /Main -->
 
     <!-- Footer -->
     <footer id="footer" class="pb-4 pt-4">
