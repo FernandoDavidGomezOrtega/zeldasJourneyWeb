@@ -231,7 +231,7 @@ CREATE TABLE `Heroe` (
   `vida` int(4) NOT NULL,
   `vida_gastar` int(4) NOT NULL,
   `Super_ataque` int(1) NOT NULL,
-  `fuerza` int(2) NOT NULL,
+  `fuerza` int(4) NOT NULL,
   `avatar_heroe` varchar(100) DEFAULT NULL,
   `Fk_id_arma` int(2) DEFAULT NULL,
   `Fk_id_escudo` int(2) DEFAULT NULL,
@@ -259,7 +259,7 @@ CREATE TABLE `plantilla_heroe` (
   `vida` int(4) NOT NULL,
   `vida_gastar` int(4) NOT NULL,
   `Super_ataque` int(1) NOT NULL,
-  `fuerza` int(2) NOT NULL,
+  `fuerza` int(4) NOT NULL,
   `avatar_heroe` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -446,23 +446,23 @@ ALTER TABLE `Heroe_Partida`
   ADD CONSTRAINT `Heroe_Partida_ibfk_1` FOREIGN KEY (`Fk_id_Heroe`) REFERENCES `Heroe` (`id_Heroe`),
   ADD CONSTRAINT `Heroe_Partida_ibfk_2` FOREIGN KEY (`Fk_id_Partida`) REFERENCES `Partida` (`Id_partida`);
 
-insert INTO plantilla_heroe(ataque, movimiento, movimientoTurno, n_ataques, nombre, descripcion, super_poder_1, super_poder_2, resistencia, vida, vida_gastar, super_ataque, avatar_heroe) 
-    values(2.2, 2, 3, 3, "Capitán América", "Luchando por la justicia después de haber estado congelado durante muchos años. En un mundo en guerra siempre es fiel a sus ideales.", "Super resistencia", "Escudo proyectil", 2.2, 3, 2, 2, "images/capitan_america.jpg");
+insert INTO plantilla_heroe(ataque, movimiento, movimientoTurno, n_ataques, nombre, descripcion, super_poder_1, super_poder_2, resistencia, vida, vida_gastar, super_ataque, fuerza, avatar_heroe) 
+    values(2.2, 2, 3, 3, "Capitán América", "Luchando por la justicia después de haber estado congelado durante muchos años. En un mundo en guerra siempre es fiel a sus ideales.", "Super resistencia", "Escudo proyectil", 2.2, 3, 2, 2, 2, "images/capitan_america.jpg");
 
-insert INTO plantilla_heroe(ataque, movimiento, movimientoTurno, n_ataques, nombre, descripcion, super_poder_1, super_poder_2, resistencia, vida, vida_gastar, super_ataque, avatar_heroe) 
-    values(1.9, 3, 4, 2, "Astro Boy", "Viene del futuro y está dispuesto a ayudar a la humanidad. Controla todas les tecnologías cibernéticas y de fusión nuclear.", "Super velocidad", "Viajes interplanetarios", 1.8, 1, 3, 4, "images/astro-boy.png");
+insert INTO plantilla_heroe(ataque, movimiento, movimientoTurno, n_ataques, nombre, descripcion, super_poder_1, super_poder_2, resistencia, vida, vida_gastar, super_ataque, fuerza, avatar_heroe) 
+    values(1.9, 3, 4, 2, "Astro Boy", "Viene del futuro y está dispuesto a ayudar a la humanidad. Controla todas les tecnologías cibernéticas y de fusión nuclear.", "Super velocidad", "Viajes interplanetarios", 1.8, 1, 3, 4, 3, "images/astro-boy.png");
 
-insert INTO plantilla_heroe(ataque, movimiento, movimientoTurno, n_ataques, nombre, descripcion, super_poder_1, super_poder_2, resistencia, vida, vida_gastar, super_ataque, avatar_heroe) 
-    values(2.1, 4, 5, 1, "Gladiator", "Viene del antiguo imperio romano. Su fuerza descomunal lo convierte en un enemigo temible. No tiene miedo a nada.", "Super fuerza", "Resistencia máxima", 2.8, 4, 1, 3, "images/gladiator.jpg");
+insert INTO plantilla_heroe(ataque, movimiento, movimientoTurno, n_ataques, nombre, descripcion, super_poder_1, super_poder_2, resistencia, vida, vida_gastar, super_ataque, fuerza, avatar_heroe) 
+    values(2.1, 4, 5, 1, "Gladiator", "Viene del antiguo imperio romano. Su fuerza descomunal lo convierte en un enemigo temible. No tiene miedo a nada.", "Super fuerza", "Resistencia máxima", 2.8, 4, 1, 3, 2, "images/gladiator.jpg");
 
-insert INTO plantilla_heroe(ataque, movimiento, movimientoTurno, n_ataques, nombre, descripcion, super_poder_1, super_poder_2, resistencia, vida, vida_gastar, super_ataque, avatar_heroe) 
-    values(1.5, 1, 4, 5, "Super Woman", "Viene de otra dimensión donde el planeta Kripton pudo ser salvado de su destrucción. Atrapada en éste universo decide unirse a los superhéroes para cuidar la galaxia.", "Viajes multiverso", "Telepatía", 2.5, 1, 5, 6, "images/super_woman.jpg");
+insert INTO plantilla_heroe(ataque, movimiento, movimientoTurno, n_ataques, nombre, descripcion, super_poder_1, super_poder_2, resistencia, vida, vida_gastar, super_ataque, fuerza, avatar_heroe) 
+    values(1.5, 1, 4, 5, "Super Woman", "Viene de otra dimensión donde el planeta Kripton pudo ser salvado de su destrucción. Atrapada en éste universo decide unirse a los superhéroes para cuidar la galaxia.", "Viajes multiverso", "Telepatía", 2.5, 1, 5, 6, 4, "images/super_woman.jpg");
 
-insert INTO plantilla_heroe(ataque, movimiento, movimientoTurno, n_ataques, nombre, descripcion, super_poder_1, super_poder_2, resistencia, vida, vida_gastar, super_ataque, avatar_heroe) 
-    values(2.9, 4, 4, 4, "Link", "Es un gran espadachín, arquero, jinete, ejecutante musical, y tiene una gran habilidad para el combate en modo duelo. El más hábil de todos.", "Super astucia", "Diseño de trampas", 1.3, 4, 6, 4, "images/link2.jpg");
+insert INTO plantilla_heroe(ataque, movimiento, movimientoTurno, n_ataques, nombre, descripcion, super_poder_1, super_poder_2, resistencia, vida, vida_gastar, super_ataque, fuerza, avatar_heroe) 
+    values(2.9, 4, 4, 4, "Link", "Es un gran espadachín, arquero, jinete, ejecutante musical, y tiene una gran habilidad para el combate en modo duelo. El más hábil de todos.", "Super astucia", "Diseño de trampas", 1.3, 4, 6, 4, 2, "images/link2.jpg");
 
-insert INTO plantilla_heroe(ataque, movimiento, movimientoTurno, n_ataques, nombre, descripcion, super_poder_1, super_poder_2, resistencia, vida, vida_gastar, super_ataque, avatar_heroe) 
-    values(3.2, 6, 6, 2, "Robot Z-Storm", "Construído como un proyecto secreto del Pentágono, Z-Storm utiliza su inteligencia artificial para empatizar con los seres humanos y socorrer en catástrofes naturales. Esta vez está dispuesto a todo en The Challenge.", "Casi indestructible", "Rayo aniquilador", 3.2, 1, 3, 3, "images/robot_heroe.png");
+insert INTO plantilla_heroe(ataque, movimiento, movimientoTurno, n_ataques, nombre, descripcion, super_poder_1, super_poder_2, resistencia, vida, vida_gastar, super_ataque, fuerza, avatar_heroe) 
+    values(3.2, 6, 6, 2, "Robot Z-Storm", "Construído como un proyecto secreto del Pentágono, Z-Storm utiliza su inteligencia artificial para empatizar con los seres humanos y socorrer en catástrofes naturales. Esta vez está dispuesto a todo en The Challenge.", "Casi indestructible", "Rayo aniquilador", 3.2, 1, 3, 3, 4, "images/robot_heroe.png");
 
 
 COMMIT;
