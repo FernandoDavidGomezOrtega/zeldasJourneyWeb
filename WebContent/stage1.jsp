@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Describe tu  personaje</title>
+<title>Stage 1</title>
 
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 <link href="bootstrap/css/main.css" rel="stylesheet" type="text/css"/>
@@ -24,46 +24,35 @@
     </nav>
     <!-- /Header -->
 
-<section id="personajes" class="mt-4 mb-4 fondo-amarillo">
+<section id="personajes" class="mt-4 mb-4 fondo-verde-claro">
       <div class="container  ">
-      	<div class="row pt-3 pb-3">
-      		<div class="col-lg-4 ">
-	      		<div class="card">
-	              <img class="card-img-top" src="images/batman.jpg" alt="Capitán América">
-	         
-	            </div>
-      		</div>
-      		<div class="  col-lg-8">
-            <form action="index.jsp" method="post">
-            	<div class="col text-center mt-3 mb-4 ">
-            		<h2 class="pb-2 ">Describe tu personaje</h2>
-          		</div>
-          		<div class="form-row mb-2">
-                <div class="form-group col-12 col-md-6">
-                  <input type="text" class="form-control" placeholder="Nombre" required="required" autofocus/>
-                </div>
-              </div>
-              <div class="form-row mb-2">
-                <div class="form-group col-12 col-md-6">
-                  <input type="text" class="form-control" placeholder="Super poder 1" required="required" autofocus/>
-                </div>
-                <div class="form-group col-12 col-md-6">
-                  <input type="text" class="form-control" placeholder="Super poder 2" required="required"/>
-                </div>
-              </div>
-              <div class="form-row">
-                <div class="form-group col">
-                  <textarea name="text" class="form-control form-control-lg" required="required" maxlength="300" rows="5" placeholder="Biografía"></textarea>
-                </div>
-              </div>
-              <div class="form-row centrado mt-4">
-                <div class="col-md-4 centrado">
-                  <button type="submit" class="btn btn-blue btn-block">Ok</button>
-                </div>
-              </div>
-            </form>
+        <div class="row col-8 offset-2 mt-3">
+          <div class="col text-center mt-3 mb-3  ">
+            <h2 class="pb-2 sin-fondo ">Stage 1    Fight!!</h2>
           </div>
-      	</div>
+        </div>
+        <div class="row centrado">
+          <div class="col-12 col-md-6 col-lg-2  mb-4">
+            <div class="card ">
+              <img class="card-img-top" src="images/superman.jpg" alt="Capitán América">
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-2 mb-4 ml-5 mr-5">
+            <div class="card ">
+              <img class="card-img" src="images/thor.png" alt="Capitán América">
+				
+            </div>
+			<div class="centrado">
+				<input class="  btn btn-blue  mb-2 mt-5 " type="submit" name="fight" value="Luchar !" />
+                <input type="hidden" value="fight"/>
+			</div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-2 mb-4">
+            <div class="card ">
+              <img class="card-img-top "  src="images/wonderWoman.jpg" alt="Capitán América">
+            </div>
+          </div>
+        </div>
       </div>
     </section>
     <!-- /Speakers -->

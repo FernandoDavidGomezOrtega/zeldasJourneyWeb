@@ -32,7 +32,14 @@ public class PersonajeHeroe extends PersonajeEnemigoJefe {
 	private ObjetoPocion artefacto;
 	
 	private Usuario usuario;
-	private String avatarHeroe;
+	
+	private String avatarHeroe; 
+	
+	private String descripcion;
+	
+	private String superPoder1;
+	
+	private String superPoder2;
 
 	/**
 	 * Constructor para inicializar el objeto personajeHereo
@@ -522,6 +529,30 @@ public class PersonajeHeroe extends PersonajeEnemigoJefe {
 
 	public void setAvatarHeroe(String avatarHeroe) {
 		this.avatarHeroe = avatarHeroe;
+	}
+	
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+	
+	public String getSuperPoder1() {
+		return superPoder1;
+	}
+
+	public void setSuperPoder1(String superPoder1) {
+		this.superPoder1 = superPoder1;
+	}
+	
+	public String getSuperPoder2() {
+		return superPoder2;
+	}
+
+	public void setSuperPoder2(String superPoder2) {
+		this.superPoder2 = superPoder2;
 	}
 
 }

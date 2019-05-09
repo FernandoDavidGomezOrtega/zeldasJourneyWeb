@@ -8,6 +8,10 @@
 	/*width: 200px;*/
 }
 
+.rem-18{
+	width: 18rem;
+}
+
 .btn-blue{
   background-color: #3471fb;
   color: white;
