@@ -58,7 +58,7 @@ public class Controller extends HttpServlet {
 		case "invitado": url = "/createOrSelect.jsp"; break;
 		case "login": url = "/login.jsp"; break;
 		case "signup": url = "/signup.jsp"; break;
-		case "dosignup": url = "/dosignup.jsp"; break;
+		case "dosignup": url = "/doSignUp.jsp"; break;
 		default: url="/";break; 
 		}
 		

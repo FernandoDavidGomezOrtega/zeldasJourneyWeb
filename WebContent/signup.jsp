@@ -52,6 +52,21 @@
             <h3 class="text-align-center sin-fondo">Date de alta</h3>
           </div>
         </div>
+        
+        <%
+        if(request.getAttribute("error") != null){
+        %>
+        
+               	<div class="row centrado">
+          <div class=" mb-2 mt-3 pt-3  ">
+            <h3 class="text-align-center sin-fondo"><%=request.getAttribute("error") %></h3>
+          </div>
+        </div>
+        
+        <%
+        request.setAttribute("error", null);
+        }
+          %>
 
 
         <table class="table col-6 offset-3 mt-3">

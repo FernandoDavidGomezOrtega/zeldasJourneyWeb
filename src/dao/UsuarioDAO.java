@@ -9,6 +9,8 @@ import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.sql.Date;
+
 
 
 /**
@@ -34,7 +36,7 @@ public class UsuarioDAO {
 		int result = 0 ;
 		try {
 			stmt = c.prepareStatement("INSERT INTO usuario(Fecha_Ingreso, Nick, Password, Nombre, Apellido ) VALUES (?,?,?,?,?)");
-			stmt.setDate (1, u.getFechaIngreso());
+			stmt.setDate (1, new Date(new java.util.Date().getTime()));
 			stmt.setString(2, u.getNick() );
 			stmt.setString(3, u.getPassword());
 			stmt.setString(4,  u.getNombre());
@@ -129,8 +131,10 @@ public class UsuarioDAO {
 				u.setPassword(rs.getString("password"));
 				u.setPersonajes(this.getListaHeroesByUsuario(c, u));
 			}
+			else u = null;
 		}catch (SQLException e){
 			e.printStackTrace();
+			u =null;
 			
 		}finally {
 			try {

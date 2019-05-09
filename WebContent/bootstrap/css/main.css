@@ -17,6 +17,24 @@
   background-color: #6a9a32;
 }
 
+.btn-verde-claro{
+	background-color: #a2f47e;
+	color: black;
+}
+
+.btn-verde-claro:hover{
+  background-color: #eeee11;
+}
+
+.btn-magenta{
+	background-color: #ca0732;
+	color: black;
+}
+
+.btn-magenta:hover{
+  background-color: gray;
+}
+
 #header img{
   width: 100px;
 }

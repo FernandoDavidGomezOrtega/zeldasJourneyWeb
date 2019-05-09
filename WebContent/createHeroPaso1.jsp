@@ -35,7 +35,7 @@
         <div class="row">
           <div class="col-12 col-md-6 col-lg-2 mb-4">
             <div class="card">
-              <img class="card-img-top" src="images/batman.jpg" alt="Capitán América">
+              <img class="card-img-top" src="images/batman.jpg" alt="Capitán América"/>
               <div class="card-body">
                 <form action="cargarPartida.jsp">
                 	<div class="centrado">
