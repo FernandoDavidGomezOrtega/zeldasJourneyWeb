@@ -58,19 +58,22 @@
         <div class="row">
         
         <% 
-        
+        ResultSet rs = null;
+        Statement stmt =null;
+        ConnectionDB c =null;
+        Connection con =null;
         try {
                  
-        	ConnectionDB c = new ConnectionDB();
-            Connection con = c.openConnection();
+        	 c = new ConnectionDB();
+             con = c.openConnection();
         	String error = "";
         	String url ="";
         	PersonajeHeroeDAO hdao = null;
         	PersonajeHeroe h=new PersonajeHeroe();
         	
-        	Statement stmt = con.createStatement();
+        	 stmt = con.createStatement();
 
-        	ResultSet rs = stmt.executeQuery("SELECT * FROM plantilla_heroe");
+        	 rs = stmt.executeQuery("SELECT * FROM plantilla_heroe");
         	
         	
                 //stmt = con.prepareStatement("SELECT * FROM heroe_plantilla");
@@ -94,7 +97,7 @@
 	                <form action="cargarPartida.jsp">
 	                	<div class="centrado">
 	                		<input class="  btn btn-blue  mb-2 pl-5 pr-5" type="submit" name="hero" value="Seleccionar" />
-	                		<input type="hidden" value="capitanAmerica"/>
+	                		<input type="hidden" value=<%=rs.getInt("id_plantilla") %> name="id_plantilla"/>
 	                	</div>
 	                </form>
 	              </div>
@@ -109,8 +112,9 @@
                // throw new Exception("Ha habido un problema al cargar los resultados "+ex.getMessage());
             }finally
             {
-               // if (rs != null) rs.close(); //Cerramos el resulset
-               // if (stmt != null) stmt.close();//Cerramos el Statement   
+                if (rs != null) rs.close(); //Cerramos el resulset
+                if (stmt != null) stmt.close();//Cerramos el Statement   
+                if (con != null) c.closeConnection(con);
             }
         
         %>

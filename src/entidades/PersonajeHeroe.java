@@ -40,6 +40,7 @@ public class PersonajeHeroe extends PersonajeEnemigoJefe {
 	private String superPoder1;
 	
 	private String superPoder2;
+	private int idPlantilla;
 
 	/**
 	 * Constructor para inicializar el objeto personajeHereo
@@ -524,7 +525,7 @@ public class PersonajeHeroe extends PersonajeEnemigoJefe {
 	}
 	
 	public String getAvatarHeroe() {
-		return avatarHeroe;
+		return this.avatarHeroe;
 	}
 
 	public void setAvatarHeroe(String avatarHeroe) {
@@ -532,7 +533,7 @@ public class PersonajeHeroe extends PersonajeEnemigoJefe {
 	}
 	
 	public String getDescripcion() {
-		return descripcion;
+		return this.descripcion;
 	}
 
 	public void setDescripcion(String descripcion) {
@@ -540,7 +541,7 @@ public class PersonajeHeroe extends PersonajeEnemigoJefe {
 	}
 	
 	public String getSuperPoder1() {
-		return superPoder1;
+		return this.superPoder1;
 	}
 
 	public void setSuperPoder1(String superPoder1) {
@@ -548,11 +549,19 @@ public class PersonajeHeroe extends PersonajeEnemigoJefe {
 	}
 	
 	public String getSuperPoder2() {
-		return superPoder2;
+		return this.superPoder2;
 	}
 
 	public void setSuperPoder2(String superPoder2) {
 		this.superPoder2 = superPoder2;
+	}
+	
+	public int getIdPlantilla() {
+		return this.idPlantilla;
+	}
+
+	public void setIdPlantilla(int idPlantilla) {
+		this.idPlantilla = idPlantilla;
 	}
 
 }

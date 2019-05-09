@@ -23,14 +23,15 @@
  		u.setApellido(request.getParameter("apellido_usuario"));
  		u.setNick(request.getParameter("nick_usuario"));
  		u.setPassword(request.getParameter("password_usuario"));
- 		
- 		if(udao.insertUsuario(con, u) <= 0){
+ 		int idUsuario = udao.insertUsuario(con, u);
+ 		if(idUsuario <= 0){
  			error = "Se ha producido un error interno. Prueba de nuevo";
  			request.setAttribute("error", error );
  			url ="/signup.jsp";
  		} else {
  			
- 			request.getSession().setAttribute("login", u.getNick());
+ 			u.setIdUsuario(idUsuario);
+ 			request.getSession().setAttribute("login", u);
  			 url ="/createOrSelect.jsp";
  			
  		}
