@@ -1,10 +1,10 @@
-package zeldasjourney;
-import zeldasjourney.jdbc.ConnectionDB;
+package testDAO;
+import dao.ConnectionDB;
 
 import java.sql.Connection;
 
-import zeldasjourney.dao.PersonajeHeroeDAO;
-import zeldasjourney.personaje.personajesHijo.PersonajeHeroe;
+import dao.PersonajeHeroeDAO;
+import entidades.PersonajeHeroe;
 
 /**
  * Test of PersonajeHeroeDAO.updateHeroeById()

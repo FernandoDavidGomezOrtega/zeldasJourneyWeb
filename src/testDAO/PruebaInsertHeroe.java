@@ -1,10 +1,10 @@
-package zeldasjourney;
-import zeldasjourney.jdbc.ConnectionDB;
-import zeldasjourney.usuario.Usuario;
+package testDAO;
+import dao.ConnectionDB;
+import entidades.Usuario;
 import java.sql.Connection;
-import zeldasjourney.dao.PersonajeHeroeDAO;
-import zeldasjourney.dao.UsuarioDAO;
-import zeldasjourney.personaje.personajesHijo.PersonajeHeroe;
+import dao.PersonajeHeroeDAO;
+import dao.UsuarioDAO;
+import entidades.PersonajeHeroe;
 
 /**
  * Test of PersonajeHeroeDAO.insertHeroe()

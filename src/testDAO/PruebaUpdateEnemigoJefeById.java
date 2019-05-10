@@ -1,10 +1,10 @@
-package zeldasjourney;
-import zeldasjourney.jdbc.ConnectionDB;
+package testDAO;
+import dao.ConnectionDB;
 
 import java.sql.Connection;
 
-import zeldasjourney.dao.PersonajeEnemigoJefeDAO;
-import zeldasjourney.personaje.personajesHijo.PersonajeEnemigoJefe;
+import dao.PersonajeEnemigoJefeDAO;
+import entidades.PersonajeEnemigoJefe;
 
 /**
  * Test of PersonajeEnemigoJefeDAO.updateEnemigoJefeById()

@@ -1,10 +1,10 @@
-package zeldasjourney;
+package testDAO;
 
 import java.sql.Connection;
 
-import zeldasjourney.dao.UsuarioDAO;
-import zeldasjourney.jdbc.ConnectionDB;
-import zeldasjourney.usuario.Usuario;
+import dao.UsuarioDAO;
+import dao.ConnectionDB;
+import entidades.Usuario;
 
 /**
  * Test of UsuarioDAO.updateUsuarioById()
