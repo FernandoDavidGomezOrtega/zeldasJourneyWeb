@@ -1,5 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@page import="java.net.*" %>
+    
+<%   
+
+//Verificacion de la variable de sesion login
+
+if(request.getSession().getAttribute("login") != null){ 
+	
+	String url ="/createOrSelect.jsp"; 
+	RequestDispatcher rd = request.getServletContext().getRequestDispatcher(url);
+ 	rd.forward(request, response);
+	}
+%>
+    
 <!DOCTYPE html>
 <html>
 <head>

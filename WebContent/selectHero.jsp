@@ -15,6 +15,17 @@
 <%@page import="dao.PersonajeHeroeDAO" %>
 <%@page import="java.net.*" %>
 
+<%
+//Verificacion de variable de sesión login
+if(request.getSession().getAttribute("login") == null){ 
+	
+	String url ="/index.jsp"; 
+	RequestDispatcher rd = request.getServletContext().getRequestDispatcher(url);
+ 	rd.forward(request, response);
+	}
+
+%>
+
 <!DOCTYPE html>
 <html>
 <head>

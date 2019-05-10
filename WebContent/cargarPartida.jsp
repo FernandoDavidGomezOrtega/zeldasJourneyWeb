@@ -8,13 +8,17 @@
 <%@page import="entidades.Usuario" %>
 <%@page import="dao.UsuarioDAO" %>
 <%@page import="entidades.PersonajeHeroe" %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
+<%
+//Verificacion de variable de sesión login
+if(request.getSession().getAttribute("login") == null){ 
+	
+	String url ="/index.jsp"; 
+	RequestDispatcher rd = request.getServletContext().getRequestDispatcher(url);
+ 	rd.forward(request, response);
+	}
+
+%>
+
 	<%
 	int idPlantilla = Integer.parseInt(request.getParameter("id_plantilla"));
 	
@@ -42,5 +46,3 @@
  	
  	 
 	%>
-</body>
-</html>

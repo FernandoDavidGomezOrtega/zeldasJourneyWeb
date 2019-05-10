@@ -5,8 +5,8 @@
 <%@page import="dao.UsuarioDAO" %>
 <%@page import="java.net.*" %>
 
-<%
 
+<%
 	ConnectionDB c = new ConnectionDB();
     Connection con = c.openConnection();
 	String error = "";
