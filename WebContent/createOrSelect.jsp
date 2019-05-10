@@ -20,12 +20,13 @@
           <img  src="images/link.jpg" alt="game logo">
           <b class="ml-5">ZELDA'S JOURNEY</b> <i class="ml-3 designed-by">the challenge</i>
         </span> 
+        
+        
+        <%--Bienvenido (usuario) y boton Desconectar --%>
+                
            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-
-	
-
 
           <div class="collapse navbar-collapse" id="navbar">
             <ul class="navbar-nav ml-auto">
@@ -46,7 +47,7 @@
                   
                   <form action="Controller" method="post">
                   	<input type="hidden" value="logout" name="opcion"/>
-                  	<input class="nav-link" type="submit" name="salir" value="Desconectar"/>
+                  	<input class="btn btn-outline-primary" type="submit" name="salir" value="Desconectar"/>
                   </form>
                 </li>
                 <%

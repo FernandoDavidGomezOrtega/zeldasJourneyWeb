@@ -19,7 +19,7 @@
           <img  src="images/link.jpg" alt="game logo">
           <b class="ml-5">ZELDA'S JOURNEY</b> <i class="ml-3 designed-by">the challenge</i>
         </span>
-        <a class="  btn btn-blue mt-2 mb-2 pl-5 pr-5" href="menu.jsp">Entrar</a>        
+        <a class="  btn btn-outline-primary mt-2 mb-2 pl-5 pr-5" href="menu.jsp">Entrar</a>        
       </div>
 
     </nav>

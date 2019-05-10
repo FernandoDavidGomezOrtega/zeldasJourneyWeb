@@ -1,10 +1,10 @@
-package zeldasjourney;
-import zeldasjourney.jdbc.ConnectionDB;
+package testDAO;
+import dao.ConnectionDB;
 
 import java.sql.Connection;
 
-import zeldasjourney.dao.UsuarioDAO;
-import zeldasjourney.usuario.Usuario;
+import dao.UsuarioDAO;
+import entidades.Usuario;
 
 /**
  * Test of UsuarioDAO.findUsuarioById() method
