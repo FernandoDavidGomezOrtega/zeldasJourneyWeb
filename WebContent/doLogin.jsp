@@ -36,7 +36,7 @@
  			
  			
  			request.getSession().setAttribute("login", u);
- 			System.out.println(u.getNick());
+ 			
  			 url ="/createOrSelect.jsp";
  		}
  		else {

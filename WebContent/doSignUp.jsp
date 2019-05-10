@@ -31,6 +31,9 @@
  		} else {
  			
  			u.setIdUsuario(idUsuario);
+ 			
+ 			u = udao.findUsuarioByNick(con, u);
+ 			
  			request.getSession().setAttribute("login", u);
  			 url ="/createOrSelect.jsp";
  			
