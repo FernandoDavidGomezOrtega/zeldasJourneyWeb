@@ -9,19 +9,6 @@
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 <link href="bootstrap/css/main.css" rel="stylesheet" type="text/css"/>
 
-<%--
-<script type="text/javascript">
-	function validarPassword(){
-		var passw= document.form.password_usuario.value;
-		var validapassw= document.form.confirmar_password_usuario.value;
-		
-		if	(passw != validapassw){
-			alert("Las contraseñas no coinciden");
-			return false;
-		} else return true;
-	}
-</script>
---%>
 
 </head>
 
@@ -52,6 +39,22 @@
             <h3 class="text-align-center sin-fondo">Iniciar sesión</h3>
           </div>
         </div>
+        
+        <%--Mensaje de error --%>
+        <%
+        if(request.getAttribute("error") != null){
+        %>
+        
+               	<div class="row centrado">
+          <div class=" mb-2 mt-3 pt-3  ">
+            <h3 class="text-align-center sin-fondo"><%=request.getAttribute("error") %></h3>
+          </div>
+        </div>
+        
+        <%
+        request.setAttribute("error", null);
+        }
+          %>
 
 
         <table class="table col-6 offset-3 mt-3">
