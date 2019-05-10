@@ -53,6 +53,7 @@
           </div>
         </div>
         
+        <%--Mensaje de error --%>
         <%
         if(request.getAttribute("error") != null){
         %>

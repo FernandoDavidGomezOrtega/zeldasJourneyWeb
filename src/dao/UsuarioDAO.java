@@ -128,6 +128,7 @@ public class UsuarioDAO {
 				u.setApellido(rs.getString("apellido"));
 				u.setFechaIngreso(rs.getDate("fecha_ingreso"));
 				u.setNombre(rs.getString("nombre"));
+				u.setNick(rs.getString("nick"));
 				u.setPassword(rs.getString("password"));
 				u.setPersonajes(this.getListaHeroesByUsuario(c, u));
 			}

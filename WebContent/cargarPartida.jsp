@@ -27,7 +27,8 @@
 	
 	PersonajeHeroe h = hdao.insertHeroeFromTemplate(c, u, idPlantilla);
 	
-	u.	
+	u.getPersonajes().add(h);
+	
 	
 	
 	
