@@ -73,7 +73,7 @@ if(request.getSession().getAttribute("login") != null){
         <div class="row centrado">
           <div class="col-12 col-md-6 col-lg-2  mb-4">
             <div class="card ">
-              <img class="card-img-top" src="<%=(PersonajeHeroe) request.getSession().getAttribute("hero").getAvatarHeroe()%>" alt="Héroe seleccionado">
+              //<img class="card-img-top" src="" alt="Héroe seleccionado">
             </div>
           </div>
           <div class="col-12 col-md-6 col-lg-2 mb-4 ml-5 mr-5">

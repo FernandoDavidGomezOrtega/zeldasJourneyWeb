@@ -1,3 +1,4 @@
+/*
 package zeldasjourney.dao;
 
 import org.junit.jupiter.api.AfterEach;
@@ -132,3 +133,4 @@ class ArtefactoDaoTest {
         assertFalse(artefactoFromDB.isPresent());
     }
 }
+*/
