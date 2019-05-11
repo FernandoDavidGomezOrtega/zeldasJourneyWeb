@@ -1,19 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    
-<%@page import="dao.ConnectionDB"%>
-<%@page import="java.sql.Connection"%>
-<%@page import="dao.ConnectionDB"%>
-<%@page import="java.sql.Connection"%>
 <%@page import="java.net.*" %>
-<%@page import="java.sql.PreparedStatement" %>
-<%@page import="java.sql.ResultSet" %>
-<%@page import="java.sql.Statement" %>
-<%@page import="java.sql.SQLException" %>
 <%@page import="entidades.PersonajeHeroe" %>
-<%@page import="entidades.Usuario" %>
-<%@page import="dao.PersonajeHeroeDAO" %>
-<%@page import="java.net.*" %>
 
 <%
 //Verificacion de variable de sesión login
@@ -24,13 +12,17 @@ if(request.getSession().getAttribute("login") != null){
  	rd.forward(request, response);
 	}
 
-%>
 
+
+%>
+    
+    
+<%@page import="entidades.Usuario" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Seleccionar personaje</title>
+<title>Stage 1</title>
 
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 <link href="bootstrap/css/main.css" rel="stylesheet" type="text/css"/>
@@ -44,7 +36,7 @@ if(request.getSession().getAttribute("login") != null){
         <span class="navbar-brand" >
           <img  src="images/link.jpg" alt="game logo">
           <b class="ml-5">ZELDA'S JOURNEY</b> <i class="ml-3 designed-by">the challenge</i>
-        </span> 
+        </span>   
         
         <%--Bienvenido (usuario) y boton Desconectar --%>
         
@@ -57,101 +49,52 @@ if(request.getSession().getAttribute("login") != null){
               <li class="mt-2 mr-5">
                 <p class="designed-by">Bienvenido, <b>Invitado</b></p>
               </li>
-              
               <li class="nav-item">
                   <form action="Controller" method="post">
                   	<input type="hidden" value="salirInvitado" name="opcion"/>
                   	<input class="btn btn-outline-primary pr-4 pl-4" type="submit" name="salir" value="Salir"/>
                   </form>
                 </li>
-              
-              
             </ul>
           </div>
-        
               
       </div>
 
     </nav>
     <!-- /Header -->
 
-	<!-- Main -->
-	<section id="personajes" class="mt-4 mb-4 fondo-gris">
+<section id="personajes" class="mt-4 mb-4 fondo-verde-claro">
       <div class="container  ">
         <div class="row col-8 offset-2 mt-3">
-          <div class="col text-center mt-3 mb-3 ">
-            
-            <h2 class="pb-2 ">Escoge tu Héroe</h2>
+          <div class="col text-center mt-3 mb-3  ">
+            <h2 class="pb-2 sin-fondo ">Stage 1    Fight!!</h2>
           </div>
         </div>
-        <div class="row">
-        
-        <% 
-        ResultSet rs = null;
-        Statement stmt =null;
-        ConnectionDB c =null;
-        Connection con =null;
-        try {
-                 
-        	 c = new ConnectionDB();
-             con = c.openConnection();
-        	String error = "";
-        	String url ="";
-        	PersonajeHeroeDAO hdao = null;
-        	PersonajeHeroe h=new PersonajeHeroe();
-        	
-        	 stmt = con.createStatement();
-
-        	 rs = stmt.executeQuery("SELECT * FROM plantilla_heroe");
-        	
-        	
-                //stmt = con.prepareStatement("SELECT * FROM heroe_plantilla");
-                //stmt.setInt(1,articulo.getIdArticulo());
-                //rs =stmt.executeQuery();
-                while (rs.next()) {
-                    
-                   System.out.println("exito"); 
-                   
-             %>
-	            <div class="col-12 col-md-6 col-lg-4 mb-4">
-	            <div class="card">
-	              <img class="card-img-top" src=<%= rs.getString("avatar_heroe") %> alt="Capitán América">
-	              <div class="card-body">
-	                <div class="badges">
-	                  <span class="badge badge-warning"><%= rs.getString("super_poder_1") %></span>
-	                  <span class="badge badge-info"><%= rs.getString("super_poder_2") %></span>
-	                </div>
-	                <h5 class="card-title"><%= rs.getString("nombre") %></h5>
-	                <p class="card-text"><%= rs.getString("descripcion") %></p>
-	                <form action="guestCargarPartida.jsp">
-	                	<div class="centrado">
-	                		<input class="  btn btn-blue  mb-2 pl-5 pr-5" type="submit" name="hero" value="Seleccionar" />
-	                		<input type="hidden" value=<%=rs.getInt("id_plantilla") %> name="id_plantilla"/>
-	                	</div>
-	                </form>
-	              </div>
-	            </div>
-	          </div>
-                   
-              <%
-                   
-                }                     
-            } catch (SQLException ex) {
-                //ex.printStackTrace();
-               // throw new Exception("Ha habido un problema al cargar los resultados "+ex.getMessage());
-            }finally
-            {
-                if (rs != null) rs.close(); //Cerramos el resulset
-                if (stmt != null) stmt.close();//Cerramos el Statement   
-                if (con != null) c.closeConnection(con);
-            }
-        
-        %>
-        
+        <div class="row centrado">
+          <div class="col-12 col-md-6 col-lg-2  mb-4">
+            <div class="card ">
+              <img class="card-img-top" src="<%=(PersonajeHeroe) request.getSession().getAttribute("hero")).getAvatarHeroe()%>" alt="Héroe seleccionado">
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-2 mb-4 ml-5 mr-5">
+            <div class="card ">
+              <img class="card-img" src="images/versus.png" alt="Capitán América">
+				
+            </div>
+			<div class="centrado">
+				<input class="  btn btn-blue  mb-2 mt-5 " type="submit" name="fight" value="Luchar !" />
+                <input type="hidden" value="fight"/>
+			</div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-2 mb-4">
+            <div class="card ">
+              <img class="card-img-top "  src="images/wonderWoman.jpg" alt="Capitán América">
+            </div>
+          </div>
         </div>
       </div>
     </section>
-    <!-- /Main -->
+    <!-- /Speakers -->
 
     <!-- Footer -->
     <footer id="footer" class="pb-4 pt-4">

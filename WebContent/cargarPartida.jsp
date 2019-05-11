@@ -29,12 +29,12 @@ if(request.getSession().getAttribute("login") == null){
 	
 	Usuario u = (Usuario)request.getSession().getAttribute("login");
 	
-	PersonajeHeroe h = hdao.insertHeroeFromTemplate(c, u, idPlantilla);
+	PersonajeHeroe hero = hdao.insertHeroeFromTemplate(c, u, idPlantilla);
 	
 	//creamos el heroe como variable de sesion
-		request.getSession().setAttribute("hero", h);
+		request.getSession().setAttribute("hero", hero);
 	
-	u.getPersonajes().add(h);
+	u.getPersonajes().add(hero);
 	
 	
 	
@@ -43,7 +43,7 @@ if(request.getSession().getAttribute("login") == null){
 	
 	
 	String url="";
-	url ="/stage1.jsp"; 
+	url ="/guestStage1.jsp"; 
 	RequestDispatcher rd = request.getServletContext().getRequestDispatcher(url);
  	rd.forward(request, response);
  	

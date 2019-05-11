@@ -33,7 +33,7 @@
  		
 		if(password.equals(confirmarPassword)){
  			
- 			
+ 			//creamos la variable de sesion login
  			request.getSession().setAttribute("login", u);
  			
  			 url ="/createOrSelect.jsp";

@@ -123,7 +123,7 @@ if(request.getSession().getAttribute("login") == null){
                 //rs =stmt.executeQuery();
                 while (rs.next()) {
                     
-                   System.out.println("exito"); 
+                   
                    
              %>
 	            <div class="col-12 col-md-6 col-lg-4 mb-4">

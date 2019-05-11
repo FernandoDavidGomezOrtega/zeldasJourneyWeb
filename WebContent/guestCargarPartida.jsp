@@ -26,7 +26,9 @@ if(request.getSession().getAttribute("login") != null){
 	ConnectionDB con = new ConnectionDB();
 	Connection c = con.openConnection();
 	PersonajeHeroeDAO hdao = new PersonajeHeroeDAO();
+	int idPlantilla = Integer.parseInt(request.getParameter("id_plantilla"));
 	
+	PersonajeHeroe hero = new PersonajeHeroe();
 	
 	Usuario u = new Usuario();
 	u.setNombre("Invitado");
@@ -35,16 +37,16 @@ if(request.getSession().getAttribute("login") != null){
 	u.setIdUsuario(1);
 	u.setPassword("12");
 	
-	int idPlantilla = Integer.parseInt(request.getParameter("id_plantilla"));
-	
-	PersonajeHeroe h = hdao.insertHeroeFromTemplate(c, u, idPlantilla);
-	
-	u.getPersonajes().add(h);
+	hero = hdao.findHeroeByIdPlantillaInPlantillaHeroe( c, idPlantilla );
 	
 	
 	
+	//creamos la variable de sesion hero
+		request.getSession().setAttribute("hero", hero);
 	
+	//PersonajeHeroe h = hdao.insertHeroeFromTemplate(c, u, idPlantilla);
 	
+	//u.getPersonajes().add(h);
 	
 	
 	String url="";
