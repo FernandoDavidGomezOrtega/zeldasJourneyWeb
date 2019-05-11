@@ -1,24 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@page import="entidades.Usuario" %>
 <%@page import="java.net.*" %>
-    
-<%   
 
-//Verificacion de la variable de sesion login
-
+<%
+//Verificacion de variable de sesión login
 if(request.getSession().getAttribute("login") != null){ 
 	
 	String url ="/createOrSelect.jsp"; 
 	RequestDispatcher rd = request.getServletContext().getRequestDispatcher(url);
  	rd.forward(request, response);
 	}
+
 %>
-    
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Menú principal</title>
+<title>Crear o seleccionar personaje</title>
 
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 <link href="bootstrap/css/main.css" rel="stylesheet" type="text/css"/>
@@ -32,65 +32,58 @@ if(request.getSession().getAttribute("login") != null){
         <span class="navbar-brand" >
           <img  src="images/link.jpg" alt="game logo">
           <b class="ml-5">ZELDA'S JOURNEY</b> <i class="ml-3 designed-by">the challenge</i>
-        </span>       
+        </span> 
+        
+        
+        <%--Bienvenido (usuario) y boton Desconectar --%>
+                
+           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbar">
+            <ul class="navbar-nav ml-auto">
+              <li class="mt-2 mr-5">
+                <p class="designed-by">Bienvenido, <b>Invitado</b></p>
+              </li>
+              
+            	  <li class="nav-item">
+                  
+                  <form action="Controller" method="post">
+                  	<input type="hidden" value="salirInvitado" name="opcion"/>
+                  	<input class="btn btn-outline-primary pr-4 pl-4" type="submit" name="salir" value="Salir"/>
+                  </form>
+                </li>              
+              
+            </ul>
+          </div>      
       </div>
 
     </nav>
     <!-- /Header -->
 
     <!-- Main -->
-	<section id="" class=" fondo-gris  mb-3 mt-4 mb-4  ">
-		<div class="row container ml-5">
-			<div class="col-9 pb-3 pt-1">
-				<div id="carousel" class="carousel slide carousel-fade mt-3" data-ride="carousel" data-pause="false">
-			        <div class="carousel-inner">
-			          <div class="carousel-item active ml-5 pl-5">
-			            <img class="d-block w-80 maindiv ml-5" src="images/escudo.png" alt="link">
-			          </div>
-			          <div class="carousel-item ml-5 pl-5">
-			            <img class="d-block w-80 ml-5 pl-5 maindiv" src="images/enemigo_comun_2.png" alt="monstruo">
-			          </div>
-			          <div class="carousel-item ml-5">
-			            <img class="d-block w-80 ml-5 pl-5 maindiv" src="images/enemigo_jefe_2.png" alt="monstruo">
-			          </div>
-			        </div>
-      			</div>
+	<section id="" class=" fondo-aqua  mb-3 mt-4 mb-4  ">
+		<div class="container">
+			<div class="row">
+				<div class="col-6 centrado">
+					<img class="crear-seleccionar-personaje mt-5" alt="crear Personaje" src="images/crearPersonaje.jpg">
+				</div>
+				
+				<div class="col-6 centrado">
+					<img class="crear-seleccionar-personaje mt-5" alt="crear Personaje" src="images/seleccionarPersonaje.png">
+				</div>
 			</div>
-			<div class="col-3 mt-5" >
-						<div class=" ">   
-               <div class="row centrado mt-3">
-	        	<h3 >Jugar como invitado</h3>
-               </div>
-               <div class="row centrado ">
-				<form action="Controller" method="post">
-					<input class="  btn btn-blue mt-2 mb-2 pl-5 pr-5"  type="submit" value="Ok"></input>
-					<input type="hidden" name="opcion" value="invitado"/>
-      			</form>
-               </div>
-               <hr class="col-6">
-               
-               <div class="row centrado mt-3">
-	        	<h3 >Iniciar sesión</h3>
-               </div>
-               <div class="row centrado">
-				<form action="login.jsp" method="post">
-					<input class="  btn btn-blue mt-2 mb-2 pl-5 pr-5" type="submit" value="Ok"></input>
-					<input type="hidden" name="opcion" value="login"/>
-      			</form>
-               </div>
-               <hr class="col-6">
-               
-               <div class="row centrado mt-3">
-	        	<h3 >Regístrate</h3>
-               </div>
-               <div class="row centrado">
-				<form action="signup.jsp" method="post">
-					<input class="  btn btn-blue mt-2 mb-2 pl-5 pr-5" type="submit" value="Ok"></input>
-					<input type="hidden" name="opcion" value="signup"/>
-      			</form>
-               </div>
-		</div>
-			</div>
+			
+					<div class="row">
+				<div class="col-6 centrado">
+					<a class="  btn btn-blue  mb-5 pl-5 pr-5" href="guestCreateHeroPaso1.jsp">Crear un personaje</a>
+				</div>
+				
+				<div class="col-6 centrado">
+					<a class="  btn btn-blue  mb-5 pl-5 pr-5" href="guestSelectHero.jsp">Seleccionar un personaje</a>
+				</div>
+			</div>	
 		</div>
     </section>
     <!-- /Main -->

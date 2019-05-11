@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Temps de generaci√≥: 16-04-2019 a les 11:46:30
--- Versi√≥ del servidor: 10.3.14-MariaDB
--- Versi√≥ de PHP: 7.3.2
+-- Temps de generaciÛ: 16-04-2019 a les 11:46:30
+-- VersiÛ del servidor: 10.3.14-MariaDB
+-- VersiÛ de PHP: 7.3.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -133,7 +133,8 @@ CREATE TABLE `Enemigo_comun` (
   `resistencia` decimal(4,2) NOT NULL,
   `turno` tinyint(1) NOT NULL,
   `vida` int(4) NOT NULL,
-  `vida_gastar` int(4) NOT NULL
+  `vida_gastar` int(4) NOT NULL, 
+  `avatar_enemigo_comun` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 -- --------------------------------------------------------
@@ -166,7 +167,8 @@ CREATE TABLE `Enemigo_Jefe` (
   `turno` tinyint(1) NOT NULL,
   `vida` int(4) NOT NULL,
   `vida_gastar` int(4) NOT NULL,
-  `Super_ataque` int(1) NOT NULL
+  `Super_ataque` int(1) NOT NULL,
+  `avatar_enemigo_jefe` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 -- --------------------------------------------------------
@@ -302,13 +304,13 @@ CREATE TABLE `Usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- √çndexs per a les taules bolcades
+-- Õndexs per a les taules bolcades
 --
 
 
 
 --
--- √çndexs per a la taula `Arma_partida`
+-- Õndexs per a la taula `Arma_partida`
 --
 ALTER TABLE `Arma_partida`
   ADD KEY `Fk_id_arma` (`Fk_id_arma`);
@@ -317,14 +319,14 @@ ALTER TABLE `Arma_partida`
 
 
 --
--- √çndexs per a la taula `Artefacto_Enemigo_partida`
+-- Õndexs per a la taula `Artefacto_Enemigo_partida`
 --
 ALTER TABLE `Artefacto_Enemigo_partida`
   ADD KEY `fk_id_artefacto_enemigo` (`fk_id_artefacto_enemigo`),
   ADD KEY `Fk_id_partida` (`Fk_id_partida`);
 
 --
--- √çndexs per a la taula `Artefacto_Partida`
+-- Õndexs per a la taula `Artefacto_Partida`
 --
 ALTER TABLE `Artefacto_Partida`
   ADD KEY `fk_id_artefacto` (`fk_id_artefacto`),
@@ -332,7 +334,7 @@ ALTER TABLE `Artefacto_Partida`
 
 
 --
--- √çndexs per a la taula `Enemigo_Comun_partida`
+-- Õndexs per a la taula `Enemigo_Comun_partida`
 --
 ALTER TABLE `Enemigo_Comun_partida`
   ADD KEY `Fk_id_enemigo_comun` (`Fk_id_enemigo_comun`),
@@ -341,7 +343,7 @@ ALTER TABLE `Enemigo_Comun_partida`
 
 
 --
--- √çndexs per a la taula `Enemigo_Jefe_partida`
+-- Õndexs per a la taula `Enemigo_Jefe_partida`
 --
 ALTER TABLE `Enemigo_Jefe_partida`
   ADD KEY `fk_id_enemigo_jefe` (`fk_id_enemigo_jefe`),
@@ -350,14 +352,14 @@ ALTER TABLE `Enemigo_Jefe_partida`
 
 
 --
--- √çndexs per a la taula `Escudo_partida`
+-- Õndexs per a la taula `Escudo_partida`
 --
 ALTER TABLE `Escudo_partida`
   ADD KEY `Fk_id_escudo` (`Fk_id_escudo`),
   ADD KEY `Fk_id_partida` (`Fk_id_partida`);
 
 --
--- √çndexs per a la taula `Heroe`
+-- Õndexs per a la taula `Heroe`
 --
 ALTER TABLE `Heroe`
   
@@ -369,7 +371,7 @@ ALTER TABLE `Heroe`
   ADD CONSTRAINT uk_heroe_id_usuario_nombre UNIQUE(fk_id_usuario, nombre);
 
 --
--- √çndexs per a la taula `Heroe_Partida`
+-- Õndexs per a la taula `Heroe_Partida`
 --
 ALTER TABLE `Heroe_Partida`
   ADD KEY `Fk_id_Heroe` (`Fk_id_Heroe`),
@@ -378,7 +380,7 @@ ALTER TABLE `Heroe_Partida`
 
 
 --
--- √çndexs per a la taula `Usuario`
+-- Õndexs per a la taula `Usuario`
 --
 ALTER TABLE `Usuario`
   
@@ -446,27 +448,45 @@ ALTER TABLE `Heroe_Partida`
   ADD CONSTRAINT `Heroe_Partida_ibfk_1` FOREIGN KEY (`Fk_id_Heroe`) REFERENCES `Heroe` (`id_Heroe`),
   ADD CONSTRAINT `Heroe_Partida_ibfk_2` FOREIGN KEY (`Fk_id_Partida`) REFERENCES `Partida` (`Id_partida`);
 
-insert INTO plantilla_heroe(ataque, movimiento, movimientoTurno, n_ataques, nombre, descripcion, super_poder_1, super_poder_2, resistencia, vida, vida_gastar, super_ataque, fuerza, avatar_heroe) 
-    values(2.2, 2, 3, 3, "Capit√°n Am√©rica", "Luchando por la justicia despu√©s de haber estado congelado durante muchos a√±os. En un mundo en guerra siempre es fiel a sus ideales.", "Super resistencia", "Escudo proyectil", 2.2, 3, 2, 2, 2, "images/capitan_america.jpg");
+--
+-- Inserts in tabla plantilla_heroe
+--
 
 insert INTO plantilla_heroe(ataque, movimiento, movimientoTurno, n_ataques, nombre, descripcion, super_poder_1, super_poder_2, resistencia, vida, vida_gastar, super_ataque, fuerza, avatar_heroe) 
-    values(1.9, 3, 4, 2, "Astro Boy", "Viene del futuro y est√° dispuesto a ayudar a la humanidad. Controla todas les tecnolog√≠as cibern√©ticas y de fusi√≥n nuclear.", "Super velocidad", "Viajes interplanetarios", 1.8, 1, 3, 4, 3, "images/astro-boy.png");
+    values(2.2, 2, 3, 3, "Capit·n AmÈrica", "Luchando por la justicia despuÈs de haber estado congelado durante muchos aÒos. En un mundo en guerra siempre es fiel a sus ideales.", "Super resistencia", "Escudo proyectil", 2.2, 3, 2, 2, 2, "images/capitan_america.jpg");
 
 insert INTO plantilla_heroe(ataque, movimiento, movimientoTurno, n_ataques, nombre, descripcion, super_poder_1, super_poder_2, resistencia, vida, vida_gastar, super_ataque, fuerza, avatar_heroe) 
-    values(2.1, 4, 5, 1, "Gladiator", "Viene del antiguo imperio romano. Su fuerza descomunal lo convierte en un enemigo temible. No tiene miedo a nada.", "Super fuerza", "Resistencia m√°xima", 2.8, 4, 1, 3, 2, "images/gladiator.jpg");
+    values(1.9, 3, 4, 2, "Astro Boy", "Viene del futuro y est· dispuesto a ayudar a la humanidad. Controla todas les tecnologÌas cibernÈticas y de fusiÛn nuclear.", "Super velocidad", "Viajes interplanetarios", 1.8, 1, 3, 4, 3, "images/astro-boy.png");
 
 insert INTO plantilla_heroe(ataque, movimiento, movimientoTurno, n_ataques, nombre, descripcion, super_poder_1, super_poder_2, resistencia, vida, vida_gastar, super_ataque, fuerza, avatar_heroe) 
-    values(1.5, 1, 4, 5, "Super Woman", "Viene de otra dimensi√≥n donde el planeta Kripton pudo ser salvado de su destrucci√≥n. Atrapada en √©ste universo decide unirse a los superh√©roes para cuidar la galaxia.", "Viajes multiverso", "Telepat√≠a", 2.5, 1, 5, 6, 4, "images/super_woman.jpg");
+    values(2.1, 4, 5, 1, "Gladiator", "Viene del antiguo imperio romano. Su fuerza descomunal lo convierte en un enemigo temible. No tiene miedo a nada.", "Super fuerza", "Resistencia m·xima", 2.8, 4, 1, 3, 2, "images/gladiator.jpg");
 
 insert INTO plantilla_heroe(ataque, movimiento, movimientoTurno, n_ataques, nombre, descripcion, super_poder_1, super_poder_2, resistencia, vida, vida_gastar, super_ataque, fuerza, avatar_heroe) 
-    values(2.9, 4, 4, 4, "Link", "Es un gran espadach√≠n, arquero, jinete, ejecutante musical, y tiene una gran habilidad para el combate en modo duelo. El m√°s h√°bil de todos.", "Super astucia", "Dise√±o de trampas", 1.3, 4, 6, 4, 2, "images/link2.jpg");
+    values(1.5, 1, 4, 5, "Super Woman", "Viene de otra dimensiÛn donde el planeta Kripton pudo ser salvado de su destrucciÛn. Atrapada en Èste universo decide unirse a los superhÈroes para cuidar la galaxia.", "Viajes multiverso", "TelepatÌa", 2.5, 1, 5, 6, 4, "images/super_woman.jpg");
 
 insert INTO plantilla_heroe(ataque, movimiento, movimientoTurno, n_ataques, nombre, descripcion, super_poder_1, super_poder_2, resistencia, vida, vida_gastar, super_ataque, fuerza, avatar_heroe) 
-    values(3.2, 6, 6, 2, "Robot Z-Storm", "Constru√≠do como un proyecto secreto del Pent√°gono, Z-Storm utiliza su inteligencia artificial para empatizar con los seres humanos y socorrer en cat√°strofes naturales. Esta vez est√° dispuesto a todo en The Challenge.", "Casi indestructible", "Rayo aniquilador", 3.2, 1, 3, 3, 4, "images/robot_heroe.png");
+    values(2.9, 4, 4, 4, "Link", "Es un gran espadachÌn, arquero, jinete, ejecutante musical, y tiene una gran habilidad para el combate en modo duelo. El m·s h·bil de todos.", "Super astucia", "DiseÒo de trampas", 1.3, 4, 6, 4, 2, "images/link2.jpg");
 
+insert INTO plantilla_heroe(ataque, movimiento, movimientoTurno, n_ataques, nombre, descripcion, super_poder_1, super_poder_2, resistencia, vida, vida_gastar, super_ataque, fuerza, avatar_heroe) 
+    values(3.2, 6, 6, 2, "Robot Z-Storm", "ConstruÌdo como un proyecto secreto del Pent·gono, Z-Storm utiliza su inteligencia artificial para empatizar con los seres humanos y socorrer en cat·strofes naturales. Esta vez est· dispuesto a todo en The Challenge.", "Casi indestructible", "Rayo aniquilador", 3.2, 1, 3, 3, 4, "images/robot_heroe.png");
+
+--
+--inserts en tabla Enemigo_comun
+--
+insert INTO enemigo_comun (ataque, experiencia, movimiento, movimientoTurnomuerto, n_ataques, nombre, resistencia, turno, vida, vida_gastar)
+  values(1.2, 0, 2, 2, 0, 3, "Zobie", 1.2, 1, 3, 3);
+
+insert INTO enemigo_comun (ataque, experiencia, movimiento, movimientoTurnomuerto, n_ataques, nombre, resistencia, turno, vida, vida_gastar)
+  values(1.2, 0, 2, 2, 0, 3, "Frankenstein", 1.2, 1, 3, 3);
+
+insert INTO enemigo_comun (ataque, experiencia, movimiento, movimientoTurnomuerto, n_ataques, nombre, resistencia, turno, vida, vida_gastar)
+  values(1.2, 0, 2, 2, 0, 3, "Muerte", 1.2, 1, 3, 3);
+
+insert INTO enemigo_comun (ataque, experiencia, movimiento, movimientoTurnomuerto, n_ataques, nombre, resistencia, turno, vida, vida_gastar)
+  values(1.2, 0, 2, 2, 0, 3, "NÈmesis", 1.2, 1, 3, 3);
 
 COMMIT;
-
+    
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

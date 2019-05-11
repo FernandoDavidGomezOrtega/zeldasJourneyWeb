@@ -55,12 +55,13 @@ public class Controller extends HttpServlet {
 		String opcion = request.getParameter("opcion");
 		System.out.println(opcion);
 		switch (opcion) {
-		case "invitado": url = "/createOrSelect.jsp"; break;
+		case "invitado": url = "/guestCreateOrSelect.jsp"; break;
 		case "login": url = "/login.jsp"; break;
 		case "dologin": url="/doLogin.jsp"; break;
 		case "signup": url = "/signup.jsp"; break;
 		case "dosignup": url = "/doSignUp.jsp"; break;
 		case "logout": url= "/doLogout.jsp"; break;
+		case "salirInvitado": url= "/index.jsp"; break;
 		default: url="/";break; 
 		}
 		
