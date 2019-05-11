@@ -1,28 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@page import="entidades.Usuario" %>
+<%@page import="java.net.*" %>
+
+<%
+//Verificacion de variable de sesión login
+if(request.getSession().getAttribute("login") != null){ 
+	
+	String url ="/createOrSelect.jsp"; 
+	RequestDispatcher rd = request.getServletContext().getRequestDispatcher(url);
+ 	rd.forward(request, response);
+	}
+
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Zelda's Journey</title>
+<title>Crear o seleccionar personaje</title>
 
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 <link href="bootstrap/css/main.css" rel="stylesheet" type="text/css"/>
-
-<%--
-<script type="text/javascript">
-	function validarPassword(){
-		var passw= document.form.password_usuario.value;
-		var validapassw= document.form.confirmar_password_usuario.value;
-		
-		if	(passw != validapassw){
-			alert("Las contraseñas no coinciden");
-			return false;
-		} else return true;
-	}
-</script>
---%>
-
 </head>
 
 
@@ -35,62 +34,57 @@
           <b class="ml-5">ZELDA'S JOURNEY</b> <i class="ml-3 designed-by">the challenge</i>
         </span> 
         
-     
+        
+        <%--Bienvenido (usuario) y boton Desconectar --%>
+                
+           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbar">
+            <ul class="navbar-nav ml-auto">
+              <li class="mt-2 mr-5">
+                <p class="designed-by">Bienvenido, <b>Invitado</b></p>
+              </li>
+              
+            	  <li class="nav-item">
+                  
+                  <form action="Controller" method="post">
+                  	<input type="hidden" value="salirInvitado" name="opcion"/>
+                  	<input class="btn btn-outline-primary pr-4 pl-4" type="submit" name="salir" value="Salir"/>
+                  </form>
+                </li>              
+              
+            </ul>
+          </div>      
       </div>
 
     </nav>
     <!-- /Header -->
 
     <!-- Main -->
-	<section id="" class=" fondo-gris  mb-3 mt-4 mb-4 centrado">
-	
-	  <div class="container">
-        <form id="form"  action="Controller" method="post" onsubmit="return validarPassword()">
-        <input type="hidden" value="dosignup" name="opcion"/>
-        	<div class="row centrado">
-          <div class=" mb-2 mt-3 pt-3  ">
-            <h3 class="text-align-center sin-fondo">Date de alta</h3>
-          </div>
-        </div>
-
-
-        <table class="table col-6 offset-3 mt-3">
-          <tbody>
-            <tr class="table-primary">
-              <th scope="row">Nombre:</th>
-              <td><input type="text" name="nombre_usuario"/></td>
-            </tr>
-            <tr class="table-secondary">
-              <th scope="row">Apellido:</th>
-              <td><input type="text" name="apellido_usuario"/></td>
-            </tr>
-            <tr class="table-success">
-              <th scope="row">Nick:</th>
-              <td><input type="text" name="nick_usuario"/></td>
-            </tr>
-            <tr class="table-danger">
-              <th scope="row">Password:</th>
-              <td><input type="password" name="password_usuario" id="password_usuario"/></td>
-            </tr>
-            
-            <%--
-            <tr class="table-warning">
-              <th scope="row">Confirmar Password:</th>
-              <td><input type="password" name="confirmar_password_usuario" id="confirmar_password_usuario"/></td>
-            </tr>
-            --%>
-            
-          </tbody>
-        </table>
-
-        <div class="row centrado">
-          <div class="   pb-5 pt-4">
-            <input type="submit" class=" btn btn-blue mt-2 mb-2 pl-5 pr-5" name="submit" value="Registrarme"/>
-          </div>
-        </div>
-        </form>
-      
-      </div>
+	<section id="" class=" fondo-aqua  mb-3 mt-4 mb-4  ">
+		<div class="container">
+			<div class="row">
+				<div class="col-6 centrado">
+					<img class="crear-seleccionar-personaje mt-5" alt="crear Personaje" src="images/crearPersonaje.jpg">
+				</div>
+				
+				<div class="col-6 centrado">
+					<img class="crear-seleccionar-personaje mt-5" alt="crear Personaje" src="images/seleccionarPersonaje.png">
+				</div>
+			</div>
+			
+					<div class="row">
+				<div class="col-6 centrado">
+					<a class="  btn btn-blue  mb-5 pl-5 pr-5" href="guestCreateHeroPaso1.jsp">Crear un personaje</a>
+				</div>
+				
+				<div class="col-6 centrado">
+					<a class="  btn btn-blue  mb-5 pl-5 pr-5" href="guestSelectHero.jsp">Seleccionar un personaje</a>
+				</div>
+			</div>	
+		</div>
     </section>
     <!-- /Main -->
 
@@ -107,7 +101,7 @@
         </div>
         <div class="row pt-4 mt-3 ">
           <div class="col">
-            <p class="designed-by">Designed by: MSF Team <br>Proyecto P 6 UOC 2019</p>
+            <p class="designed-by">Designed by: MSF Team <br>Proyecto P_6 UOC 2019</p>
           </div>
         </div>
       </div>

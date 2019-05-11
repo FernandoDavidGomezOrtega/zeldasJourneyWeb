@@ -6,7 +6,6 @@
 <%@page import="java.net.*" %>
 
 <%
-
 	ConnectionDB c = new ConnectionDB();
     Connection con = c.openConnection();
 	String error = "";
@@ -34,7 +33,7 @@
  		
 		if(password.equals(confirmarPassword)){
  			
- 			
+ 			//creamos la variable de sesion login
  			request.getSession().setAttribute("login", u);
  			
  			 url ="/createOrSelect.jsp";

@@ -5,8 +5,8 @@
 <%@page import="dao.UsuarioDAO" %>
 <%@page import="java.net.*" %>
 
-<%
 
+<%
 	ConnectionDB c = new ConnectionDB();
     Connection con = c.openConnection();
 	String error = "";
@@ -34,6 +34,7 @@
  			
  			u = udao.findUsuarioByNick(con, u);
  			
+ 			//creamos el usuario como variable de sesion
  			request.getSession().setAttribute("login", u);
  			 url ="/createOrSelect.jsp";
  			

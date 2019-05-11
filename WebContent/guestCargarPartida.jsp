@@ -5,14 +5,16 @@
 <%@page import="dao.PersonajeHeroeDAO" %>
 <%@page import="dao.ConnectionDB" %>
 <%@page import="java.sql.Connection" %>
+<%@page import="java.util.Date" %>
 <%@page import="entidades.Usuario" %>
 <%@page import="dao.UsuarioDAO" %>
 <%@page import="entidades.PersonajeHeroe" %>
+
 <%
 //Verificacion de variable de sesión login
-if(request.getSession().getAttribute("login") == null){ 
+if(request.getSession().getAttribute("login") != null){ 
 	
-	String url ="/index.jsp"; 
+	String url ="/createOrSelect.jsp"; 
 	RequestDispatcher rd = request.getServletContext().getRequestDispatcher(url);
  	rd.forward(request, response);
 	}
@@ -20,30 +22,35 @@ if(request.getSession().getAttribute("login") == null){
 %>
 
 	<%
-	int idPlantilla = Integer.parseInt(request.getParameter("id_plantilla"));
 	
 	ConnectionDB con = new ConnectionDB();
 	Connection c = con.openConnection();
 	PersonajeHeroeDAO hdao = new PersonajeHeroeDAO();
+	int idPlantilla = Integer.parseInt(request.getParameter("id_plantilla"));
+	
+	PersonajeHeroe hero = new PersonajeHeroe();
+	
+	Usuario u = new Usuario();
+	u.setNombre("Invitado");
+	u.setApellido("1");
+	u.setNick("Invitado");
+	u.setIdUsuario(1);
+	u.setPassword("12");
+	
+	hero = hdao.findHeroeByIdPlantillaInPlantillaHeroe( c, idPlantilla );
 	
 	
-	Usuario u = (Usuario)request.getSession().getAttribute("login");
 	
-	PersonajeHeroe hero = hdao.insertHeroeFromTemplate(c, u, idPlantilla);
-	
-	//creamos el heroe como variable de sesion
+	//creamos la variable de sesion hero
 		request.getSession().setAttribute("hero", hero);
 	
-	u.getPersonajes().add(hero);
+	//PersonajeHeroe h = hdao.insertHeroeFromTemplate(c, u, idPlantilla);
 	
-	
-	
-	
-	
+	//u.getPersonajes().add(h);
 	
 	
 	String url="";
-	url ="/stage1.jsp"; 
+	url ="/guestStage1.jsp"; 
 	RequestDispatcher rd = request.getServletContext().getRequestDispatcher(url);
  	rd.forward(request, response);
  	

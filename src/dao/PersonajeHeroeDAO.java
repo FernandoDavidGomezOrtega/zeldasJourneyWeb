@@ -271,6 +271,55 @@ public PersonajeHeroe insertHeroeFromTemplate(Connection c, Usuario u, int idPla
 	}
 	
 	
+	
+	public PersonajeHeroe findHeroeByIdPlantillaInPlantillaHeroe(Connection c, int idPlantilla ) throws Exception
+	{
+		
+	    PreparedStatement stmt=null;
+	    ResultSet rs=null;
+	    PersonajeHeroe p = new PersonajeHeroe();
+	    try {
+	                        
+	            stmt = c.prepareStatement("SELECT * FROM plantilla_heroe WHERE id_plantilla=?");
+	            stmt.setInt(1, idPlantilla);
+	            rs =stmt.executeQuery();
+	            //while (rs.next()) {
+	               // personaje=new PersonajeHeroe();
+	              // getHeroeRow(rs,personaje);
+	               
+               if(rs.next()) {
+	               p.setAtaque(rs.getDouble("ataque"));
+	               p.setExperiencia(rs.getInt("experiencia"));
+	               p.setFuerza(rs.getInt("fuerza"));
+	               p.setMovimiento(rs.getInt("movimiento"));
+	               p.setMovimientoTurno(rs.getInt("movimientoturno"));
+	               boolean aux = rs.getInt("muerto")==1;
+	               p.setMuerto(aux);
+	               p.setNAtaques(rs.getInt("n_ataques"));
+	               p.setNombre(rs.getString("nombre"));
+	               p.setResistencia(rs.getDouble("resistencia"));
+	               p.setSuperAtaque(rs.getInt("super_ataque"));
+	               aux = rs.getInt("turno")==1;
+	               p.setTurno(aux);
+	               
+	               UsuarioDAO udao = new UsuarioDAO();
+	               Usuario u = new Usuario();
+	               u.setIdUsuario(rs.getInt("fk_id_usuario"));
+	               u = udao.findUsuarioById(c, u);
+	               
+	               p.setUsuario(u);
+	            } else p = null;                    
+	        } catch (SQLException ex) {
+	            ex.printStackTrace();
+	        }finally
+	        {
+	            if (rs != null) rs.close(); //Cerramos el resulset
+	            if (stmt != null) stmt.close();//Cerramos el Statement   
+	        }
+	    return p;
+	}
+	
+	
 	/**
 	 * Method to delete PersonajeHeroe from DB
 	 * @param c: Connection

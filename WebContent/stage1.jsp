@@ -2,6 +2,46 @@
     pageEncoding="ISO-8859-1"%>
     
 <%@page import="entidades.Usuario" %>
+
+<%@ page import="entidades.*" %>
+<%@ page import="dao.*" %>
+<%@ page import="java.sql.*" %>
+
+<%
+
+PersonajeHeroeDAO DAO=new PersonajeHeroeDAO();
+
+ConnectionDB cdb= new ConnectionDB();
+
+Connection con = null;
+
+con = cdb.openConnection();
+
+int id= ((PersonajeHeroe) request.getSession().getAttribute("hero")).getIDPropia();
+
+PersonajeHeroe Heroe1 = new PersonajeHeroe();
+
+Heroe1.setIDPropia(id);
+
+Heroe1= DAO.findHeroeById(con, Heroe1);
+
+PersonajeHeroe Heroe2 = new PersonajeHeroe();
+
+Heroe2.setIDPropia(3);
+
+Heroe2=Heroe1= DAO.findHeroeById(con, Heroe2);
+
+
+
+
+
+
+
+
+
+%>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,6 +61,7 @@
           <img  src="images/link.jpg" alt="game logo">
           <b class="ml-5">ZELDA'S JOURNEY</b> <i class="ml-3 designed-by">the challenge</i>
         </span>   
+        
         
         <%--Bienvenido (usuario) y boton Desconectar --%>
         
@@ -62,6 +103,7 @@
 
     </nav>
     <!-- /Header -->
+<form action="actuacion.jsp">
 
 <section id="personajes" class="mt-4 mb-4 fondo-verde-claro">
       <div class="container  ">
@@ -73,8 +115,36 @@
         <div class="row centrado">
           <div class="col-12 col-md-6 col-lg-2  mb-4">
             <div class="card ">
-              <img class="card-img-top" src="images/superman.jpg" alt="Capitán América">
+              <img class="card-img-top" src="images/<% out.print(Heroe1.getAvatarHeroe()); %>" alt="<% out.print(Heroe1.getAvatarHeroe()); %>">
             </div>
+            <div><TABLE BORDER="1"> 
+            <table class="table">
+  <thead>
+    <tr>
+     <TH scope="col">Fuerza</TH> 
+   <TH scope="col">Vida Maxima</TH> 
+   <TH scope="col">Vida Actual</TH>
+   <TH scope="col">Ataque</TH> 
+   <TH scope="col">Resistencia</TH> 
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      
+    </tr>
+    <tr>
+      <TD name="fuerza"> <% out.print(Heroe1.getFuerza()); %></td>
+   <TD name="vida"><% out.print(Heroe1.getVida()); %></td>
+   <TD name="vidaturno"><% out.print(Heroe1.getVidaTurno()); %></td>
+   <TD name="ataque"><% out.print(Heroe1.getAtaque()); %></td>
+   <TD name="resistencia"><% out.print(Heroe1.getResistencia()); %></td>
+    </tr>
+   
+  </tbody>
+</table>
+
+ </div>
+            
           </div>
           <div class="col-12 col-md-6 col-lg-2 mb-4 ml-5 mr-5">
             <div class="card ">
@@ -83,17 +153,43 @@
             </div>
 			<div class="centrado">
 				<input class="  btn btn-blue  mb-2 mt-5 " type="submit" name="fight" value="Luchar !" />
-                <input type="hidden" value="fight"/>
+                <input name="lucha" type="hidden" value="ok" />
 			</div>
           </div>
           <div class="col-12 col-md-6 col-lg-2 mb-4">
             <div class="card ">
               <img class="card-img-top "  src="images/wonderWoman.jpg" alt="Capitán América">
+              
             </div>
+                      <table class="table">
+  <thead>
+    <tr>
+     <TH scope="col">Fuerza</TH> 
+   <TH scope="col">Vida Maxima</TH> 
+   <TH scope="col">Vida Actual</TH>
+   <TH scope="col">Ataque</TH> 
+   <TH scope="col">Resistencia</TH> 
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      
+    </tr>
+    <tr>
+      <TD name="fuerza"> <% out.print(Heroe2.getFuerza()); %></td>
+   <TD name="vida"><% out.print(Heroe2.getVida()); %></td>
+   <TD name="vidaturno"><% out.print(Heroe2.getVidaTurno()); %></td>
+   <TD name="ataque"><% out.print(Heroe2.getAtaque()); %></td>
+   <TD name="resistencia"><% out.print(Heroe2.getResistencia()); %></td>
+    </tr>
+   
+  </tbody>
+</table>
           </div>
         </div>
       </div>
     </section>
+    </form>
     <!-- /Speakers -->
 
     <!-- Footer -->

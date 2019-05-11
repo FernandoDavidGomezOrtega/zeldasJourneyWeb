@@ -17,9 +17,9 @@
 
 <%
 //Verificacion de variable de sesión login
-if(request.getSession().getAttribute("login") == null){ 
+if(request.getSession().getAttribute("login") != null){ 
 	
-	String url ="/index.jsp"; 
+	String url ="/createOrSelect.jsp"; 
 	RequestDispatcher rd = request.getServletContext().getRequestDispatcher(url);
  	rd.forward(request, response);
 	}
@@ -55,28 +55,15 @@ if(request.getSession().getAttribute("login") == null){
           <div class="collapse navbar-collapse" id="navbar">
             <ul class="navbar-nav ml-auto">
               <li class="mt-2 mr-5">
-                <p class="designed-by">Bienvenido, <b><%
-		if(request.getSession().getAttribute("login") != null){ 
-		  out.println(((Usuario) request.getSession().getAttribute("login")).getNick());
-		  
-		} else out.println("Invitado");
-                
-                %></b></p>
+                <p class="designed-by">Bienvenido, <b>Invitado</b></p>
               </li>
               
-              <%
-              if(request.getSession().getAttribute("login") != null){
-            	%>
-            	  <li class="nav-item">
-                  
+              <li class="nav-item">
                   <form action="Controller" method="post">
-                  	<input type="hidden" value="logout" name="opcion"/>
-                  	<input class="btn btn-outline-primary" type="submit" name="salir" value="Desconectar"/>
+                  	<input type="hidden" value="salirInvitado" name="opcion"/>
+                  	<input class="btn btn-outline-primary pr-4 pl-4" type="submit" name="salir" value="Salir"/>
                   </form>
                 </li>
-                <%
-              }
-              %>
               
               
             </ul>
@@ -123,7 +110,7 @@ if(request.getSession().getAttribute("login") == null){
                 //rs =stmt.executeQuery();
                 while (rs.next()) {
                     
-                   
+                   System.out.println("exito"); 
                    
              %>
 	            <div class="col-12 col-md-6 col-lg-4 mb-4">
@@ -136,7 +123,7 @@ if(request.getSession().getAttribute("login") == null){
 	                </div>
 	                <h5 class="card-title"><%= rs.getString("nombre") %></h5>
 	                <p class="card-text"><%= rs.getString("descripcion") %></p>
-	                <form action="cargarPartida.jsp">
+	                <form action="guestCargarPartida.jsp">
 	                	<div class="centrado">
 	                		<input class="  btn btn-blue  mb-2 pl-5 pr-5" type="submit" name="hero" value="Seleccionar" />
 	                		<input type="hidden" value=<%=rs.getInt("id_plantilla") %> name="id_plantilla"/>
