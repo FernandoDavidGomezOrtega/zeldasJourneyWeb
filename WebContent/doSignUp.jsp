@@ -34,6 +34,7 @@
  			
  			u = udao.findUsuarioByNick(con, u);
  			
+ 			//creamos el usuario como variable de sesion
  			request.getSession().setAttribute("login", u);
  			 url ="/createOrSelect.jsp";
  			

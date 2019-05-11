@@ -31,6 +31,9 @@ if(request.getSession().getAttribute("login") == null){
 	
 	PersonajeHeroe h = hdao.insertHeroeFromTemplate(c, u, idPlantilla);
 	
+	//creamos el heroe como variable de sesion
+		request.getSession().setAttribute("hero", h);
+	
 	u.getPersonajes().add(h);
 	
 	
