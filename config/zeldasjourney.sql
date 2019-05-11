@@ -474,16 +474,16 @@ insert INTO plantilla_heroe(ataque, movimiento, movimientoTurno, n_ataques, nomb
 --
 --inserts en tabla Enemigo_comun
 --
-insert INTO enemigo_comun (ataque, experiencia, movimiento, movimientoTurnomuerto, n_ataques, nombre, resistencia, turno, vida, vida_gastar)
+insert INTO enemigo_comun (ataque, experiencia, movimiento, movimiento, Turnomuerto, n_ataques, nombre, resistencia, turno, vida, vida_gastar)
   values(1.2, 0, 2, 2, 0, 3, "Zobie", 1.2, 1, 3, 3);
 
-insert INTO enemigo_comun (ataque, experiencia, movimiento, movimientoTurnomuerto, n_ataques, nombre, resistencia, turno, vida, vida_gastar)
+insert INTO enemigo_comun (ataque, experiencia, movimiento, movimiento, Turnomuerto, n_ataques, nombre, resistencia, turno, vida, vida_gastar)
   values(1.2, 0, 2, 2, 0, 3, "Frankenstein", 1.2, 1, 3, 3);
 
-insert INTO enemigo_comun (ataque, experiencia, movimiento, movimientoTurnomuerto, n_ataques, nombre, resistencia, turno, vida, vida_gastar)
+insert INTO enemigo_comun (ataque, experiencia, movimiento, movimiento, Turnomuerto, n_ataques, nombre, resistencia, turno, vida, vida_gastar)
   values(1.2, 0, 2, 2, 0, 3, "Muerte", 1.2, 1, 3, 3);
 
-insert INTO enemigo_comun (ataque, experiencia, movimiento, movimientoTurnomuerto, n_ataques, nombre, resistencia, turno, vida, vida_gastar)
+insert INTO enemigo_comun (ataque, experiencia, movimiento, movimiento, Turnomuerto, n_ataques, nombre, resistencia, turno, vida, vida_gastar)
   values(1.2, 0, 2, 2, 0, 3, "N�mesis", 1.2, 1, 3, 3);
 
 COMMIT;
