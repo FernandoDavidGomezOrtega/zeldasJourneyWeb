@@ -1,18 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@page import="java.net.*" %>
-<%@page import="entidades.PersonajeHeroe" %>
 
 <%
 //Verificacion de variable de sesión login
-if(request.getSession().getAttribute("login") != null){ 
+if(request.getSession().getAttribute("login") == null){ 
 	
-	String url ="/createOrSelect.jsp"; 
+	String url ="/index.jsp"; 
 	RequestDispatcher rd = request.getServletContext().getRequestDispatcher(url);
  	rd.forward(request, response);
 	}
-
-
 
 %>
     
@@ -47,14 +44,30 @@ if(request.getSession().getAttribute("login") != null){
           <div class="collapse navbar-collapse" id="navbar">
             <ul class="navbar-nav ml-auto">
               <li class="mt-2 mr-5">
-                <p class="designed-by">Bienvenido, <b>Invitado</b></p>
+                <p class="designed-by">Bienvenido, <b><%
+		if(request.getSession().getAttribute("login") != null){ 
+		  out.println(((Usuario) request.getSession().getAttribute("login")).getNick());
+		  
+		} else out.println("Invitado");
+                
+                %></b></p>
               </li>
-              <li class="nav-item">
+              
+              <%
+              if(request.getSession().getAttribute("login") != null){
+            	%>
+            	  <li class="nav-item">
+                  
                   <form action="Controller" method="post">
-                  	<input type="hidden" value="salirInvitado" name="opcion"/>
-                  	<input class="btn btn-outline-primary pr-4 pl-4" type="submit" name="salir" value="Salir"/>
+                  	<input type="hidden" value="logout" name="opcion"/>
+                  	<input class="btn btn-outline-primary" type="submit" name="salir" value="Desconectar"/>
                   </form>
                 </li>
+                <%
+              }
+              %>
+              
+              
             </ul>
           </div>
               
@@ -73,7 +86,7 @@ if(request.getSession().getAttribute("login") != null){
         <div class="row centrado">
           <div class="col-12 col-md-6 col-lg-2  mb-4">
             <div class="card ">
-              <img class="card-img-top" src="<%=(PersonajeHeroe) request.getSession().getAttribute("hero").getAvatarHeroe()%>" alt="Héroe seleccionado">
+              <img class="card-img-top" src="images/superman.jpg" alt="Capitán América">
             </div>
           </div>
           <div class="col-12 col-md-6 col-lg-2 mb-4 ml-5 mr-5">

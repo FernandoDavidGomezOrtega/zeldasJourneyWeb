@@ -43,7 +43,7 @@ if(request.getSession().getAttribute("login") == null){
 	
 	
 	String url="";
-	url ="/guestStage1.jsp"; 
+	url ="/stage1.jsp"; 
 	RequestDispatcher rd = request.getServletContext().getRequestDispatcher(url);
  	rd.forward(request, response);
  	
