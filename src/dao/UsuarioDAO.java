@@ -35,7 +35,7 @@ public class UsuarioDAO {
 		ResultSet rs = null;
 		int result = 0 ;
 		try {
-			stmt = c.prepareStatement("INSERT INTO usuario(Fecha_Ingreso, Nick, Password, Nombre, Apellido ) VALUES (?,?,?,?,?)");
+			stmt = c.prepareStatement("INSERT INTO usuario(Fecha_Ingreso, Nick, Password , Nombre, Apellido ) VALUES (?,?,?,?,?)");
 			stmt.setDate (1, new Date(new java.util.Date().getTime()));
 			stmt.setString(2, u.getNick() );
 			stmt.setString(3, u.getPassword());
@@ -45,7 +45,7 @@ public class UsuarioDAO {
 			stmt.executeUpdate();
 			
 			stmt2 = c.createStatement();
-			rs = stmt2.executeQuery("SELECT MAX(ID_USUARIO) FROM usuario");
+			rs = stmt2.executeQuery("SELECT MAX(id_usuario) FROM usuario");
 			rs.next();
 			result = rs.getInt(1);
 			

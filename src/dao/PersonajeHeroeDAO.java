@@ -301,13 +301,15 @@ public PersonajeHeroe insertHeroeFromTemplate(Connection c, Usuario u, int idPla
 	               p.setSuperAtaque(rs.getInt("super_ataque"));
 	               aux = rs.getInt("turno")==1;
 	               p.setTurno(aux);
+	               p.setAvatarHeroe(rs.getString("avatar_heroe"));
 	               
-	               UsuarioDAO udao = new UsuarioDAO();
-	               Usuario u = new Usuario();
-	               u.setIdUsuario(rs.getInt("fk_id_usuario"));
-	               u = udao.findUsuarioById(c, u);
 	               
-	               p.setUsuario(u);
+	               //UsuarioDAO udao = new UsuarioDAO();
+	               //Usuario u = new Usuario();
+	               //u.setIdUsuario(rs.getInt("fk_id_usuario"));
+	               //u = udao.findUsuarioById(c, u);
+	               
+	               //p.setUsuario(u);
 	            } else p = null;                    
 	        } catch (SQLException ex) {
 	            ex.printStackTrace();

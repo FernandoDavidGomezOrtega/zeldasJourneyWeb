@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <%@page import="java.net.*" %>
 <%@page import="entidades.PersonajeHeroe" %>
-
+<%@page import="entidades.Usuario" %>
 <%
 //Verificacion de variable de sesión login
 if(request.getSession().getAttribute("login") != null){ 
@@ -17,7 +17,7 @@ if(request.getSession().getAttribute("login") != null){
 %>
     
     
-<%@page import="entidades.Usuario" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -63,7 +63,7 @@ if(request.getSession().getAttribute("login") != null){
     </nav>
     <!-- /Header -->
 
-<section id="personajes" class="mt-4 mb-4 fondo-verde-claro">
+<section id="personajes" class="mt-4 mb-4 pt-4 pb-4 fondo-verde-claro">
       <div class="container  ">
         <div class="row col-8 offset-2 mt-3">
           <div class="col text-center mt-3 mb-3  ">
@@ -73,12 +73,12 @@ if(request.getSession().getAttribute("login") != null){
         <div class="row centrado">
           <div class="col-12 col-md-6 col-lg-2  mb-4">
             <div class="card ">
-              //<img class="card-img-top" src="" alt="Héroe seleccionado">
+              <img class="card-img-top" src="images/link.jpg" alt="Héroe seleccionado">
             </div>
           </div>
           <div class="col-12 col-md-6 col-lg-2 mb-4 ml-5 mr-5">
             <div class="card ">
-              <img class="card-img" src="images/versus.png" alt="Capitán América">
+              <img class="card-img" src="images/versus.png" alt="versus">
 				
             </div>
 			<div class="centrado">
@@ -88,7 +88,7 @@ if(request.getSession().getAttribute("login") != null){
           </div>
           <div class="col-12 col-md-6 col-lg-2 mb-4">
             <div class="card ">
-              <img class="card-img-top "  src="images/wonderWoman.jpg" alt="Capitán América">
+              <img class="card-img-top "  src="images/wonderWoman.jpg" alt="Wonder Woman">
             </div>
           </div>
         </div>

@@ -22,19 +22,7 @@ if(request.getSession().getAttribute("login") != null){
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 <link href="bootstrap/css/main.css" rel="stylesheet" type="text/css"/>
 
-<%--
-<script type="text/javascript">
-	function validarPassword(){
-		var passw= document.form.password_usuario.value;
-		var validapassw= document.form.confirmar_password_usuario.value;
-		
-		if	(passw != validapassw){
-			alert("Las contraseñas no coinciden");
-			return false;
-		} else return true;
-	}
-</script>
---%>
+
 
 </head>
 
@@ -71,11 +59,13 @@ if(request.getSession().getAttribute("login") != null){
         if(request.getAttribute("error") != null){
         %>
         
-               	<div class="row centrado">
-          <div class=" mb-2 mt-3 pt-3  ">
-            <h3 class="text-align-center sin-fondo"><%=request.getAttribute("error") %></h3>
+        <div class="row centrado">
+          <div class="alert alert-danger text-align-center" role="alert">
+            <%=request.getAttribute("error") %>
           </div>
         </div>
+        
+        
         
         <%
         request.setAttribute("error", null);
@@ -87,27 +77,27 @@ if(request.getSession().getAttribute("login") != null){
           <tbody>
             <tr class="table-primary">
               <th scope="row">Nombre:</th>
-              <td><input type="text" name="nombre_usuario" required="required" autofocus/></td>
+              <td><input type="text" name="nombre_usuario" id="nameUser" required="required" autofocus/></td>
             </tr>
             <tr class="table-secondary">
               <th scope="row">Apellido:</th>
-              <td><input type="text" name="apellido_usuario" required="required"/></td>
+              <td><input type="text" name="apellido_usuario" id="apellidoUser" required="required"/></td>
             </tr>
             <tr class="table-success">
               <th scope="row">Nick:</th>
-              <td><input type="text" name="nick_usuario" required="required"/></td>
+              <td><input type="text" name="nick_usuario" id="userNick" required="required"/></td>
             </tr>
             <tr class="table-danger">
               <th scope="row">Password:</th>
-              <td><input type="password" name="password_usuario" id="password_usuario" required="required"/></td>
+              <td><input type="password" name="loginPassword"  id="loginPassword" required="required"/></td>
             </tr>
             
-            <%--
+            
             <tr class="table-warning">
               <th scope="row">Confirmar Password:</th>
-              <td><input type="password" name="confirmar_password_usuario" id="confirmar_password_usuario"/></td>
+              <td><input type="password" name="confirmarLoginPassword" id="confirmarLoginPassword" required="required"/></td>
             </tr>
-            --%>
+            
             
           </tbody>
         </table>
@@ -142,6 +132,74 @@ if(request.getSession().getAttribute("login") != null){
       </div>
     </footer>
     <!-- /Footer -->
+    
+          <script type="text/javascript">
+     // función para validar el formato de nombre, password y confirmacion de password -->
+        function validarPassword(){
+          var p1 = document.getElementById("loginPassword").value;
+          var p2 = document.getElementById("confirmarLoginPassword").value;
+          var userName = document.getElementById("nameUser").value;
+          var htmlspecialchars = false;
+          var cont = 0;
+          var maxLenghtName = 30;
+          var maxLenghtPassword = 20;
+
+          // Verificamos el formato de nombre -->
+          if (maxLenghtName < userName.length) {
+            alert ("El nombre debe tener 30 caracteres como máximo");
+            document.getElementById("nameUser").focus();
+            return false;
+          }
+
+          while (!htmlspecialchars && (cont < userName.length)) {
+            if ((userName.charAt(cont) == " ") || (userName.charAt(cont) == "/") || (userName.charAt(cont) == "\\")
+              || (userName.charAt(cont) == "{") || (userName.charAt(cont) == "}")  || (userName.charAt(cont) == "(")
+              || (userName.charAt(cont) == ")") || (userName.charAt(cont) == "<") || (userName.charAt(cont) == ">")
+              || (userName.charAt(cont) == "'")  || (userName.charAt(cont) == '"') || (userName.charAt(cont) == '[')
+              || (userName.charAt(cont) == ']'))
+              htmlspecialchars = true;
+            cont++;
+          }
+
+          if (htmlspecialchars) {
+            alert ("El nombre no puede contener espacios en blanco,\nni los siguentes caracteres: / \\ { } ( ) [ ] < > ' \" ");
+            document.getElementById("nameUser").focus();
+            return false;
+          }
+
+          // Verificamos el formato de password-->
+          var cont = 0;
+
+          if (maxLenghtPassword < p1.length) {
+            alert ("La contraseña debe tener 20 caracteres como máximo");
+            document.getElementById("loginPassword").focus();
+            return false;
+          }
+
+          while (!htmlspecialchars && (cont < p1.length)) {
+            if ((p1.charAt(cont) == " ") || (p1.charAt(cont) == "/") || (p1.charAt(cont) == "\\")
+              || (p1.charAt(cont) == "{") || (p1.charAt(cont) == "}")  || (p1.charAt(cont) == "(")
+              || (p1.charAt(cont) == ")") || (p1.charAt(cont) == "<") || (p1.charAt(cont) == ">")
+              || (p1.charAt(cont) == "'")  || (p1.charAt(cont) == '"') || (p1.charAt(cont) == '[')
+              || (p1.charAt(cont) == ']'))
+              htmlspecialchars = true;
+            cont ++;
+          }
+
+          if (htmlspecialchars) {
+            alert ("La contraseña no puede contener espacios en blanco,\nni los siguentes caracteres: / \\ { } ( ) [ ] < > ' \" ");
+            document.getElementById("loginPassword").focus();
+            return false;
+          }
+
+          // Verificamos que coincidan las contraseñas-->
+          if (p1 != p2) {
+            alert ("Las contraseñas no coinciden");
+            document.getElementById("loginPassword").focus();
+            return false;
+          }
+        }
+      </script>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

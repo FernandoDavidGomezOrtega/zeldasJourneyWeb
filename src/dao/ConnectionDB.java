@@ -11,7 +11,7 @@ public class ConnectionDB {
         try {
             Class.forName("com.mysql.jdbc.Driver"); // se carga el driver
             //String urlOdbc = "jdbc:mysql://192.168.64.2:3306/zeldasjourney";
-            String urlOdbc = "jdbc:mysql://localhost:3306/zeldasjourney?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+            String urlOdbc = "jdbc:mysql://localhost:3306/zeldasjourneyweb?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
             con = java.sql.DriverManager.getConnection(urlOdbc, "root", ""); //crea la conexion
             return con;
         } catch (Exception e) {

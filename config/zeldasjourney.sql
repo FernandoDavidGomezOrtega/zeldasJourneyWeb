@@ -454,36 +454,36 @@ ALTER TABLE `Heroe_Partida`
 --
 
 insert INTO plantilla_heroe(ataque, movimiento, movimientoTurno, n_ataques, nombre, descripcion, super_poder_1, super_poder_2, resistencia, vida, vida_gastar, super_ataque, fuerza, avatar_heroe) 
-    values(2.2, 2, 3, 3, "Capitï¿½n Amï¿½rica", "Luchando por la justicia despuï¿½s de haber estado congelado durante muchos aï¿½os. En un mundo en guerra siempre es fiel a sus ideales.", "Super resistencia", "Escudo proyectil", 2.2, 3, 2, 2, 2, "images/capitan_america.jpg");
+    values(2.2, 2, 3, 3, "Capitán América", "Luchando por la justicia después de haber estado congelado durante muchos años. En un mundo en guerra siempre es fiel a sus ideales.", "Super resistencia", "Escudo proyectil", 2.2, 3, 2, 2, 2, "images/capitan_america.jpg");
 
 insert INTO plantilla_heroe(ataque, movimiento, movimientoTurno, n_ataques, nombre, descripcion, super_poder_1, super_poder_2, resistencia, vida, vida_gastar, super_ataque, fuerza, avatar_heroe) 
-    values(1.9, 3, 4, 2, "Astro Boy", "Viene del futuro y estï¿½ dispuesto a ayudar a la humanidad. Controla todas les tecnologï¿½as cibernï¿½ticas y de fusiï¿½n nuclear.", "Super velocidad", "Viajes interplanetarios", 1.8, 1, 3, 4, 3, "images/astro-boy.png");
+    values(1.9, 3, 4, 2, "Astro Boy", "Viene del futuro y está dispuesto a ayudar a la humanidad. Controla todas les tecnologías cibernéticas y de fusión nuclear.", "Super velocidad", "Viajes interplanetarios", 1.8, 1, 3, 4, 3, "images/astro-boy.png");
 
 insert INTO plantilla_heroe(ataque, movimiento, movimientoTurno, n_ataques, nombre, descripcion, super_poder_1, super_poder_2, resistencia, vida, vida_gastar, super_ataque, fuerza, avatar_heroe) 
-    values(2.1, 4, 5, 1, "Gladiator", "Viene del antiguo imperio romano. Su fuerza descomunal lo convierte en un enemigo temible. No tiene miedo a nada.", "Super fuerza", "Resistencia mï¿½xima", 2.8, 4, 1, 3, 2, "images/gladiator.jpg");
+    values(2.1, 4, 5, 1, "Gladiator", "Viene del antiguo imperio romano. Su fuerza descomunal lo convierte en un enemigo temible. No tiene miedo a nada.", "Super fuerza", "Resistencia máxima", 2.8, 4, 1, 3, 2, "images/gladiator.jpg");
 
 insert INTO plantilla_heroe(ataque, movimiento, movimientoTurno, n_ataques, nombre, descripcion, super_poder_1, super_poder_2, resistencia, vida, vida_gastar, super_ataque, fuerza, avatar_heroe) 
-    values(1.5, 1, 4, 5, "Super Woman", "Viene de otra dimensiï¿½n donde el planeta Kripton pudo ser salvado de su destrucciï¿½n. Atrapada en ï¿½ste universo decide unirse a los superhï¿½roes para cuidar la galaxia.", "Viajes multiverso", "Telepatï¿½a", 2.5, 1, 5, 6, 4, "images/super_woman.jpg");
+    values(1.5, 1, 4, 5, "Super Woman", "Viene de otra dimensión donde el planeta Kripton pudo ser salvado de su destrucción. Atrapada en éste universo decide unirse a los superhéroes para cuidar la galaxia.", "Viajes multiverso", "Telepatía", 2.5, 1, 5, 6, 4, "images/super_woman.jpg");
 
 insert INTO plantilla_heroe(ataque, movimiento, movimientoTurno, n_ataques, nombre, descripcion, super_poder_1, super_poder_2, resistencia, vida, vida_gastar, super_ataque, fuerza, avatar_heroe) 
-    values(2.9, 4, 4, 4, "Link", "Es un gran espadachï¿½n, arquero, jinete, ejecutante musical, y tiene una gran habilidad para el combate en modo duelo. El mï¿½s hï¿½bil de todos.", "Super astucia", "Diseï¿½o de trampas", 1.3, 4, 6, 4, 2, "images/link2.jpg");
+    values(2.9, 4, 4, 4, "Link", "Es un gran espadachín, arquero, jinete, ejecutante musical, y tiene una gran habilidad para el combate en modo duelo. El más hábil de todos.", "Super astucia", "Diseño de trampas", 1.3, 4, 6, 4, 2, "images/link2.jpg");
 
 insert INTO plantilla_heroe(ataque, movimiento, movimientoTurno, n_ataques, nombre, descripcion, super_poder_1, super_poder_2, resistencia, vida, vida_gastar, super_ataque, fuerza, avatar_heroe) 
-    values(3.2, 6, 6, 2, "Robot Z-Storm", "Construï¿½do como un proyecto secreto del Pentï¿½gono, Z-Storm utiliza su inteligencia artificial para empatizar con los seres humanos y socorrer en catï¿½strofes naturales. Esta vez estï¿½ dispuesto a todo en The Challenge.", "Casi indestructible", "Rayo aniquilador", 3.2, 1, 3, 3, 4, "images/robot_heroe.png");
+    values(3.2, 6, 6, 2, "Robot Z-Storm", "Construído como un proyecto secreto del Pentágono, Z-Storm utiliza su inteligencia artificial para empatizar con los seres humanos y socorrer en catástrofes naturales. Esta vez está dispuesto a todo en The Challenge.", "Casi indestructible", "Rayo aniquilador", 3.2, 1, 3, 3, 4, "images/robot_heroe.png");
 
 --
---inserts en tabla Enemigo_comun
+-- inserts en tabla Enemigo_comun
 --
-insert INTO enemigo_comun (ataque, experiencia, movimiento, movimientoTurno, muerto, n_ataques, nombre, resistencia, turno, vida, vida_gastar)
-  values(1.2, 0, 2, 2, 0, 3, "Zobie", 1.2, 1, 3, 3);
+insert INTO Enemigo_comun (ataque, experiencia, movimiento, movimientoTurno, muerto, n_ataques, nombre, resistencia, turno, vida, vida_gastar)
+  values(1.2, 0, 2, 2, 0, 3, "Zombie", 1.2, 1, 3, 3);
 
-insert INTO enemigo_comun (ataque, experiencia, movimiento, movimientoTurno, muerto, n_ataques, nombre, resistencia, turno, vida, vida_gastar)
+insert INTO Enemigo_comun (ataque, experiencia, movimiento, movimientoTurno, muerto, n_ataques, nombre, resistencia, turno, vida, vida_gastar)
   values(1.2, 0, 2, 2, 0, 3, "Frankenstein", 1.2, 1, 3, 3);
 
-insert INTO enemigo_comun (ataque, experiencia, movimiento, movimientoTurno, muerto, n_ataques, nombre, resistencia, turno, vida, vida_gastar)
+insert INTO Enemigo_comun (ataque, experiencia, movimiento, movimientoTurno, muerto, n_ataques, nombre, resistencia, turno, vida, vida_gastar)
   values(1.2, 0, 2, 2, 0, 3, "Muerte", 1.2, 1, 3, 3);
 
-insert INTO enemigo_comun (ataque, experiencia, movimiento, movimientoTurno, muerto, n_ataques, nombre, resistencia, turno, vida, vida_gastar)
+insert INTO Enemigo_comun (ataque, experiencia, movimiento, movimientoTurno, muerto, n_ataques, nombre, resistencia, turno, vida, vida_gastar)
   values(1.2, 0, 2, 2, 0, 3, "Nï¿½mesis", 1.2, 1, 3, 3);
 
 COMMIT;

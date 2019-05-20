@@ -22,10 +22,10 @@
  		u.setNombre(request.getParameter("nombre_usuario"));
  		u.setApellido(request.getParameter("apellido_usuario"));
  		u.setNick(request.getParameter("nick_usuario"));
- 		u.setPassword(request.getParameter("password_usuario"));
+ 		u.setPassword(request.getParameter("loginPassword"));
  		int idUsuario = udao.insertUsuario(con, u);
  		if(idUsuario <= 0){
- 			error = "Se ha producido un error interno. Prueba de nuevo";
+ 			error = "Se ha producido un error interno. Prueba de nuevo por favor";
  			request.setAttribute("error", error );
  			url ="/signup.jsp";
  		} else {
