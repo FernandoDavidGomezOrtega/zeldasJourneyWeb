@@ -71,8 +71,8 @@
   color: white;
 }
 
-.fondo-gris{
-	background-color: gray;
+.fondo-amarillo-claro{
+	background-color: #f8eb6f;
 }
 
 .fondo-amarillo{
@@ -81,6 +81,10 @@
 
 .fondo-aqua{
 	background-color: #11afb3;
+}
+
+.fondo-aqua-claro{
+	background-color: #aee8f9;
 }
 
 .fondo-verde-claro{

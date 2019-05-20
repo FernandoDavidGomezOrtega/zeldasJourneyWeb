@@ -44,7 +44,7 @@ if(request.getSession().getAttribute("login") != null){
     <!-- /Header -->
 
     <!-- Main -->
-	<section id="" class=" fondo-magenta  mb-3 mt-5 mb-5 centrado">
+	<section id="" class=" fondo-amarillo-claro  pb-5 pt-5 mt-3 mb-3 centrado">
 	
 	  <div class="container">
         <form id="form"  action="Controller" method="post" onsubmit="return validarPassword()">

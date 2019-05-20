@@ -41,7 +41,7 @@ if(request.getSession().getAttribute("login") != null){
     <!-- /Header -->
 
     <!-- Main -->
-    <div id="bienvenido" class="pt-4 pb-4" >
+    <div id="bienvenido" class="pt-4 pb-4 fondo-aqua" >
       <div id="carousel" class="carousel slide carousel-fade" data-ride="carousel" data-pause="false">
         <div class="carousel-inner pt-3 pb-3">
           <div class="carousel-item active ml-5">

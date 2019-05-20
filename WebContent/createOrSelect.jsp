@@ -44,7 +44,7 @@ if(request.getSession().getAttribute("login") == null){
           <div class="collapse navbar-collapse" id="navbar">
             <ul class="navbar-nav ml-auto">
               <li class="mt-2 mr-5">
-                <p class="designed-by">Bienvenido, <b><%
+                <p class="designed-by">Bienvenido/a, <b><%
 		if(request.getSession().getAttribute("login") != null){ 
 		  out.println(((Usuario) request.getSession().getAttribute("login")).getNick());
 		  

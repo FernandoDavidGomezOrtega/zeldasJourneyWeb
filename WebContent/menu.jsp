@@ -39,7 +39,7 @@ if(request.getSession().getAttribute("login") != null){
     <!-- /Header -->
 
     <!-- Main -->
-	<section id="" class=" fondo-gris  mb-3 mt-4 mb-4  ">
+	<section id="" class=" fondo-verde-claro  mb-3 mt-4 mb-4  ">
 		<div class="row container ml-5">
 			<div class="col-9 pb-3 pt-1">
 				<div id="carousel" class="carousel slide carousel-fade mt-3" data-ride="carousel" data-pause="false">

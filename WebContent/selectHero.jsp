@@ -55,7 +55,7 @@ if(request.getSession().getAttribute("login") == null){
           <div class="collapse navbar-collapse" id="navbar">
             <ul class="navbar-nav ml-auto">
               <li class="mt-2 mr-5">
-                <p class="designed-by">Bienvenido, <b><%
+                <p class="designed-by">Bienvenido/a, <b><%
 		if(request.getSession().getAttribute("login") != null){ 
 		  out.println(((Usuario) request.getSession().getAttribute("login")).getNick());
 		  
@@ -89,7 +89,7 @@ if(request.getSession().getAttribute("login") == null){
     <!-- /Header -->
 
 	<!-- Main -->
-	<section id="personajes" class="mt-4 mb-4 fondo-gris">
+	<section id="personajes" class="mt-4 mb-4 fondo-aqua-claro">
       <div class="container  ">
         <div class="row col-8 offset-2 mt-3">
           <div class="col text-center mt-3 mb-3 ">
