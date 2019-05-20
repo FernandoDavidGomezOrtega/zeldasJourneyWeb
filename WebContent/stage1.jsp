@@ -83,7 +83,7 @@
         <div class="row centrado">
           <div class="col-12 col-md-6 col-lg-2  mb-4">
             <div class="card ">
-              <img class="card-img-top" src="<%(PersonajeHeroe) request.getSession().getAttribute("login").getAvatarHeroe(); %>" alt="<%  request.getSession().getAttribute("login").getNombre(); %>">
+              <img class="card-img-top" src="images/astro-boy.png">
             </div>
 
             
