@@ -82,8 +82,7 @@ if(request.getSession().getAttribute("login") != null){
 				
             </div>
 			<div class="centrado">
-				<input class="  btn btn-blue  mb-2 mt-5 " type="submit" name="fight" value="Luchar !" />
-                <input type="hidden" value="fight"/>
+				<a href="guestWinner.jsp" class="  btn btn-blue  mb-2 mt-5 ">Luchar !</a>
 			</div>
           </div>
           <div class="col-12 col-md-6 col-lg-2 mb-4">

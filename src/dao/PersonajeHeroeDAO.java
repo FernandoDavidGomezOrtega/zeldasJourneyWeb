@@ -33,9 +33,9 @@ public class PersonajeHeroeDAO {
 		Statement stmt2=null;
 		int result = 0;
 		try {
-			stmt = c.prepareStatement("INSERT INTO Heroe( FK_ID_Usuario, ataque, "+
-		"experiencia, movimiento, movimientoTurno, muerto, n_ataques, nombre, resistencia,"+
-					" turno, vida, vida_gastar, Super_ataque, fuerza, avatar_heroe) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+			stmt = c.prepareStatement("INSERT INTO HEROE( HEROE_ID_USUARIO, HEROE_ATAQUE, "+
+		"HEROE_EXPERIENCIA, movimiento, movimientoTurno, muerto, n_ataques, nombre, resistencia,"+
+					" turno, vida, vida_gastar, Super_ataque, fuerza, avatar_HEROE) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 			stmt.setInt(1, u.getIdUsuario());
 			stmt.setDouble(2, p.getAtaque() );
 			stmt.setInt(3, p.getExperiencia());
@@ -56,7 +56,7 @@ public class PersonajeHeroeDAO {
 			
 			stmt2 = c.createStatement();
 			
-			ResultSet rs = stmt2.executeQuery("SELECT MAX(id_heroe) FROM heroe");
+			ResultSet rs = stmt2.executeQuery("SELECT MAX(id_heroe) FROM HEROE");
 			rs.next();
 			result = rs.getInt(1);
 			
@@ -94,11 +94,11 @@ public PersonajeHeroe insertHeroeFromTemplate(Connection c, Usuario u, int idPla
 			
 			rs.next();
 			
-			stmt = c.prepareStatement("INSERT INTO Heroe( FK_ID_Usuario, ataque, "+
-		"experiencia, movimiento, movimientoTurno, muerto, n_ataques, nombre, resistencia,"+
+			stmt = c.prepareStatement("INSERT INTO HEROE( HEROE_ID_USUARIO, HEROE_ATAQUE, "+
+		"HEROE_EXPERIENCIA, movimiento, movimientoTurno, muerto, n_ataques, nombre, resistencia,"+
 					" turno, vida, vida_gastar, Super_ataque, fuerza, avatar_heroe, id_plantilla,super_poder_1, super_poder_2, descripcion) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 			stmt.setInt(1, u.getIdUsuario());
-			stmt.setDouble(2, rs.getDouble("ataque") );
+			stmt.setDouble(2, rs.getDouble("HEROE_ATAQUE") );
 			stmt.setInt(3, 0);
 			stmt.setInt(4,  rs.getInt("movimiento"));
 			stmt.setInt(5,  rs.getInt("movimientoTurno"));
@@ -120,7 +120,7 @@ public PersonajeHeroe insertHeroeFromTemplate(Connection c, Usuario u, int idPla
 			stmt.executeUpdate();
 			
 			h = new PersonajeHeroe();
-			h.setAtaque(rs.getDouble("ataque"));
+			h.setAtaque(rs.getDouble("HEROE_ATAQUE"));
 			h.setExperiencia(0);
 			h.setMovimiento(rs.getInt("movimiento"));
 			h.setMovimientoTurno(rs.getInt("movimientoTurno"));
@@ -179,7 +179,7 @@ public PersonajeHeroe insertHeroeFromTemplate(Connection c, Usuario u, int idPla
 		int result = 1;
 		 PreparedStatement stmt=null;           
 	       try {
-	             stmt = c.prepareStatement("UPDATE heroe SET ataque=?,experiencia=?,"+
+	             stmt = c.prepareStatement("UPDATE HEROE SET HEROE_ATAQUE=?,HEROE_EXPERIENCIA=?,"+
 	                    "movimiento=?,movimientoTurno=?,muerto=?,n_ataques=?,nombre=?, resistencia=?, turno=?, vida=?, vida_gastar=?, Super_ataque=?, fuerza=? WHERE id_heroe=?");
 				stmt.setDouble(1, p.getAtaque() );
 				stmt.setInt(2, p.getExperiencia());
@@ -231,7 +231,7 @@ public PersonajeHeroe insertHeroeFromTemplate(Connection c, Usuario u, int idPla
 	    ResultSet rs=null;
 	    try {
 	                        
-	            stmt = c.prepareStatement("SELECT * FROM heroe WHERE id_heroe=?");
+	            stmt = c.prepareStatement("SELECT * FROM HEROE WHERE id_heroe=?");
 	            stmt.setInt(1,p.getIDPropia());
 	            rs =stmt.executeQuery();
 	            //while (rs.next()) {
@@ -239,8 +239,8 @@ public PersonajeHeroe insertHeroeFromTemplate(Connection c, Usuario u, int idPla
 	              // getHeroeRow(rs,personaje);
 	               
                if(rs.next()) {
-	               p.setAtaque(rs.getDouble("ataque"));
-	               p.setExperiencia(rs.getInt("experiencia"));
+	               p.setAtaque(rs.getDouble("HEROE_ATAQUE"));
+	               p.setExperiencia(rs.getInt("HEROE_EXPERIENCIA"));
 	               p.setFuerza(rs.getInt("fuerza"));
 	               p.setMovimiento(rs.getInt("movimiento"));
 	               p.setMovimientoTurno(rs.getInt("movimientoturno"));
@@ -255,7 +255,7 @@ public PersonajeHeroe insertHeroeFromTemplate(Connection c, Usuario u, int idPla
 	               
 	               UsuarioDAO udao = new UsuarioDAO();
 	               Usuario u = new Usuario();
-	               u.setIdUsuario(rs.getInt("fk_id_usuario"));
+	               u.setIdUsuario(rs.getInt("HEROE_ID_USUARIO"));
 	               u = udao.findUsuarioById(c, u);
 	               
 	               p.setUsuario(u);
@@ -288,8 +288,8 @@ public PersonajeHeroe insertHeroeFromTemplate(Connection c, Usuario u, int idPla
 	              // getHeroeRow(rs,personaje);
 	               
                if(rs.next()) {
-	               p.setAtaque(rs.getDouble("ataque"));
-	               p.setExperiencia(rs.getInt("experiencia"));
+	               p.setAtaque(rs.getDouble("HEROE_ATAQUE"));
+	               p.setExperiencia(rs.getInt("HEROE_EXPERIENCIA"));
 	               p.setFuerza(rs.getInt("fuerza"));
 	               p.setMovimiento(rs.getInt("movimiento"));
 	               p.setMovimientoTurno(rs.getInt("movimientoturno"));
@@ -306,7 +306,7 @@ public PersonajeHeroe insertHeroeFromTemplate(Connection c, Usuario u, int idPla
 	               
 	               //UsuarioDAO udao = new UsuarioDAO();
 	               //Usuario u = new Usuario();
-	               //u.setIdUsuario(rs.getInt("fk_id_usuario"));
+	               //u.setIdUsuario(rs.getInt("HEROE_ID_USUARIO"));
 	               //u = udao.findUsuarioById(c, u);
 	               
 	               //p.setUsuario(u);
@@ -334,7 +334,7 @@ public PersonajeHeroe insertHeroeFromTemplate(Connection c, Usuario u, int idPla
 		PreparedStatement stmt=null; 
 		int result = 0;
 	    try {
-	            stmt = c.prepareStatement("DELETE FROM heroe WHERE id_heroe=?");
+	            stmt = c.prepareStatement("DELETE FROM HEROE WHERE id_heroe=?");
 	            stmt.setInt(1, p.getIDPropia());
 	            
 	            stmt.executeUpdate();

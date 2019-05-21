@@ -94,16 +94,13 @@
 				
             </div>
 			<div class="centrado">
-				<input class="  btn btn-blue  mb-2 mt-5 " type="submit" name="fight" value="Luchar !" />
-                <input name="lucha" type="hidden" value="ok" />
+				<a href="winner.jsp" class="  btn btn-blue  mb-2 mt-5 ">Luchar !</a>
 			</div>
           </div>
           <div class="col-12 col-md-6 col-lg-2 mb-4">
             <div class="card ">
-              <img class="card-img-top "  src="images/wonderWoman.jpg" alt="Capitán América">
-              
+              <img class="card-img-top "  src="images/wonderWoman.jpg" alt="Wonder Woman">
             </div>
-                      
           </div>
         </div>
       </div>

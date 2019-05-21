@@ -35,7 +35,7 @@ public class UsuarioDAO {
 		ResultSet rs = null;
 		int result = 0 ;
 		try {
-			stmt = c.prepareStatement("INSERT INTO usuario(Fecha_Ingreso, Nick, Password , Nombre, Apellido ) VALUES (?,?,?,?,?)");
+			stmt = c.prepareStatement("INSERT INTO USUARIO(USUARIO_FECHA_INGRESO, USUARIO_NICK, USUARIO_PASSWORD , USUARIO_NOMBRE, USUARIO_APELLIDO ) VALUES (?,?,?,?,?)");
 			stmt.setDate (1, new Date(new java.util.Date().getTime()));
 			stmt.setString(2, u.getNick() );
 			stmt.setString(3, u.getPassword());
@@ -45,7 +45,7 @@ public class UsuarioDAO {
 			stmt.executeUpdate();
 			
 			stmt2 = c.createStatement();
-			rs = stmt2.executeQuery("SELECT MAX(id_usuario) FROM usuario");
+			rs = stmt2.executeQuery("SELECT MAX(USUARIO_ID) FROM USUARIO");
 			rs.next();
 			result = rs.getInt(1);
 			
@@ -77,7 +77,7 @@ public class UsuarioDAO {
 	private ArrayList<PersonajeHeroe> getListaHeroesByUsuario(Connection c, Usuario u) throws Exception {
 		ResultSet rs = null;
 		
-		String sql = "SELECT * from heroe where fk_id_usuario=?";
+		String sql = "SELECT * from HEROE where HEROE_USUARIO_ID=?";
 		
 		ArrayList<PersonajeHeroe> lista = new ArrayList<PersonajeHeroe>();
 		try {
@@ -115,7 +115,7 @@ public class UsuarioDAO {
 
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql ="SELECT * from usuario where nick =?";
+		String sql ="SELECT * from USUARIO where USUARIO_NICK =?";
 		try {
 			pstmt = c.prepareStatement(sql);
 			pstmt.setString(1,  u.getNick());
@@ -124,12 +124,12 @@ public class UsuarioDAO {
 
 			if(rs.next()) {
 				u = new Usuario();
-				u.setIdUsuario(rs.getInt("id_usuario"));
-				u.setApellido(rs.getString("apellido"));
-				u.setFechaIngreso(rs.getDate("fecha_ingreso"));
-				u.setNombre(rs.getString("nombre"));
-				u.setNick(rs.getString("nick"));
-				u.setPassword(rs.getString("password"));
+				u.setIdUsuario(rs.getInt("USUARIO_ID"));
+				u.setApellido(rs.getString("USUARIO_APELLIDO"));
+				u.setFechaIngreso(rs.getDate("USUARIO_FECHA_INGRESO"));
+				u.setNombre(rs.getString("USUARIO_NOMBRE"));
+				u.setNick(rs.getString("USUARIO_NICK"));
+				u.setPassword(rs.getString("USUARIO_PASSWORD"));
 				u.setPersonajes(this.getListaHeroesByUsuario(c, u));
 			}
 			else u = null;
@@ -159,7 +159,7 @@ public class UsuarioDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		String sql ="SELECT * from usuario where id_usuario =?";
+		String sql ="SELECT * from USUARIO where USUARIO_ID =?";
 		try {
 			pstmt = c.prepareStatement(sql);
 			pstmt.setInt(1,  u.getIdUsuario());
@@ -168,11 +168,11 @@ public class UsuarioDAO {
 			if(rs.next()) {
 				
 				
-				u.setApellido(rs.getString("apellido"));
-				u.setFechaIngreso(rs.getDate("fecha_ingreso"));
-				u.setNick(rs.getString("nick"));
-				u.setNombre(rs.getString("nombre"));
-				u.setPassword(rs.getString("password"));
+				u.setApellido(rs.getString("USUARIO_APELLIDO"));
+				u.setFechaIngreso(rs.getDate("USUARIO_FECHA_INGRESO"));
+				u.setNick(rs.getString("USUARIO_NICK"));
+				u.setNombre(rs.getString("USUARIO_NOMBRE"));
+				u.setPassword(rs.getString("USUARIO_PASSWORD"));
 				u.setPersonajes(this.getListaHeroesByUsuario(c, u));
 			} else {
 				u = null;
@@ -201,8 +201,8 @@ public class UsuarioDAO {
 		 PreparedStatement stmt=null;   
 		 int result = 0;
 	       try {
-	             stmt = c.prepareStatement("UPDATE usuario SET Nick=?,Password=?,"+
-	                    "Nombre=?,Apellido=? WHERE id_usuario=?");
+	             stmt = c.prepareStatement("UPDATE USUARIO SET USUARIO_NICK=?,USUARIO_PASSWORD=?,"+
+	                    "USUARIO_NOMBRE=?,USUARIO_APELLIDO=? WHERE USUARIO_ID=?");
 	            
 				stmt.setString(1, u.getNick() );
 				stmt.setString(2, u.getPassword());
@@ -244,7 +244,7 @@ public class UsuarioDAO {
 		
 		//borramos todos los heroes que haya para poder borrar después al usuario
 		try {
-            stmt = c.prepareStatement("DELETE FROM heroe where fk_id_usuario =  ? ");
+            stmt = c.prepareStatement("DELETE FROM HEROE where HEROE_USUARIO_ID =  ? ");
             stmt.setInt(1, u.getIdUsuario());
             stmt.executeUpdate();
             
@@ -256,7 +256,7 @@ public class UsuarioDAO {
 		
 		//ahora borramos Usuario
 	    try {
-	            stmt = c.prepareStatement("DELETE FROM usuario where id_usuario =  ? ");
+	            stmt = c.prepareStatement("DELETE FROM USUARIO where USUARIO_ID =  ? ");
 	            stmt.setInt(1, u.getIdUsuario());
 	            stmt.executeUpdate();
 	            result =1;
