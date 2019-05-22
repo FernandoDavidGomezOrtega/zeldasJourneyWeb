@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="ISO-8859-1"%>
 <%@page import="java.net.*" %>
     
@@ -16,7 +16,7 @@ if(request.getSession().getAttribute("login") != null){
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Registro</title>
 
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
@@ -28,6 +28,7 @@ if(request.getSession().getAttribute("login") != null){
 
 
 <body data-spy="scroll" data-target="#navbar" data-offset="74">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
     <!-- Header -->
     <nav id="header" class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
       <div class="container">
@@ -77,25 +78,25 @@ if(request.getSession().getAttribute("login") != null){
           <tbody>
             <tr class="table-primary">
               <th scope="row">Nombre:</th>
-              <td><input type="text" name="nombre_usuario" id="nameUser" required="required" autofocus/></td>
+              <td><input type="text" name="nombre_usuario" id="nameUser" required="required" maxlength="20" autofocus/></td>
             </tr>
             <tr class="table-secondary">
               <th scope="row">Apellido:</th>
-              <td><input type="text" name="apellido_usuario" id="apellidoUser" required="required"/></td>
+              <td><input type="text" name="apellido_usuario" id="apellidoUser" maxlength="20" required="required"/></td>
             </tr>
             <tr class="table-success">
               <th scope="row">Nick:</th>
-              <td><input type="text" name="nick_usuario" id="userNick" required="required"/></td>
+              <td><input type="text" name="nick_usuario" id="userNick" maxlength="20" required="required"/></td>
             </tr>
             <tr class="table-danger">
               <th scope="row">Password:</th>
-              <td><input type="password" name="loginPassword"  id="loginPassword" required="required"/></td>
+              <td><input type="password" name="loginPassword" maxlength="10"  id="loginPassword" required="required"/></td>
             </tr>
             
             
             <tr class="table-warning">
               <th scope="row">Confirmar Password:</th>
-              <td><input type="password" name="confirmarLoginPassword" id="confirmarLoginPassword" required="required"/></td>
+              <td><input type="password" name="confirmarLoginPassword" id="confirmarLoginPassword"  maxlength="10" required="required"/></td>
             </tr>
             
             
@@ -141,12 +142,12 @@ if(request.getSession().getAttribute("login") != null){
           var userName = document.getElementById("nameUser").value;
           var htmlspecialchars = false;
           var cont = 0;
-          var maxLenghtName = 30;
-          var maxLenghtPassword = 20;
+          var maxLenghtName = 20;
+          var maxLenghtPassword = 10;
 
           // Verificamos el formato de nombre -->
           if (maxLenghtName < userName.length) {
-            alert ("El nombre debe tener 30 caracteres como máximo");
+        	  swal('', 'El nombre debe tener 20 caracteres como máximo', 'error');
             document.getElementById("nameUser").focus();
             return false;
           }
@@ -162,7 +163,7 @@ if(request.getSession().getAttribute("login") != null){
           }
 
           if (htmlspecialchars) {
-            alert ("El nombre no puede contener espacios en blanco,\nni los siguentes caracteres: / \\ { } ( ) [ ] < > ' \" ");
+        	  swal('', 'Los campos no pueden contener espacios en blanco,\nni los siguentes caracteres: / \\ { } ( ) [ ] < > \' "', 'error');
             document.getElementById("nameUser").focus();
             return false;
           }
@@ -171,7 +172,7 @@ if(request.getSession().getAttribute("login") != null){
           var cont = 0;
 
           if (maxLenghtPassword < p1.length) {
-            alert ("La contraseña debe tener 20 caracteres como máximo");
+        	  swal('', 'La contraseña debe tener 10 caracteres como máximo', 'error')
             document.getElementById("loginPassword").focus();
             return false;
           }
@@ -187,14 +188,14 @@ if(request.getSession().getAttribute("login") != null){
           }
 
           if (htmlspecialchars) {
-            alert ("La contraseña no puede contener espacios en blanco,\nni los siguentes caracteres: / \\ { } ( ) [ ] < > ' \" ");
+        	  swal('', 'Los campos no pueden contener espacios en blanco,\nni los siguentes caracteres: / \\ { } ( ) [ ] < > \' "', 'error');
             document.getElementById("loginPassword").focus();
             return false;
           }
 
           // Verificamos que coincidan las contraseñas-->
           if (p1 != p2) {
-            alert ("Las contraseñas no coinciden");
+            swal ('', 'Las contraseñas no coinciden', 'error');
             document.getElementById("loginPassword").focus();
             return false;
           }

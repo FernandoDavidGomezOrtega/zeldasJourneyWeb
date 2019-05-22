@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="ISO-8859-1"%>
 <%@page import="java.net.*" %>
     
@@ -18,7 +18,7 @@ if(request.getSession().getAttribute("login") != null){
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Login</title>
 
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
@@ -29,6 +29,8 @@ if(request.getSession().getAttribute("login") != null){
 
 
 <body data-spy="scroll" data-target="#navbar" data-offset="74">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+
     <!-- Header -->
     <nav id="header" class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
       <div class="container">
@@ -77,11 +79,11 @@ if(request.getSession().getAttribute("login") != null){
 
             <tr class="table-success">
               <th scope="row">Nick:</th>
-              <td><input type="text" name="nick_usuario" required="required" autofocus/></td>
+              <td><input type="text" name="nick_usuario" id="nameUser" maxlength="20" required="required" autofocus/></td>
             </tr>
             <tr class="table-danger">
               <th scope="row">Password:</th>
-              <td><input type="password" name="password_usuario" id="password_usuario"required="required"/></td>
+              <td><input type="password" name="password_usuario" id="loginPassword"  maxlength="10" required="required"/></td>
             </tr>
 
             
@@ -118,6 +120,67 @@ if(request.getSession().getAttribute("login") != null){
       </div>
     </footer>
     <!-- /Footer -->
+    
+             <script type="text/javascript">
+     // función para validar el formato de nombre, password y confirmacion de password -->
+        function validarPassword(){
+          var p1 = document.getElementById("loginPassword").value;
+          var userName = document.getElementById("nameUser").value;
+          var htmlspecialchars = false;
+          var cont = 0;
+          var maxLenghtName = 20;
+          var maxLenghtPassword = 10;
+
+          // Verificamos el formato de nombre -->
+          if (maxLenghtName < userName.length) {
+            swal('', 'El nombre debe tener 20 caracteres como máximo', 'error');
+            document.getElementById("nameUser").focus();
+            return false;
+          }
+
+          while (!htmlspecialchars && (cont < userName.length)) {
+            if ((userName.charAt(cont) == " ") || (userName.charAt(cont) == "/") || (userName.charAt(cont) == "\\")
+              || (userName.charAt(cont) == "{") || (userName.charAt(cont) == "}")  || (userName.charAt(cont) == "(")
+              || (userName.charAt(cont) == ")") || (userName.charAt(cont) == "<") || (userName.charAt(cont) == ">")
+              || (userName.charAt(cont) == "'")  || (userName.charAt(cont) == '"') || (userName.charAt(cont) == '[')
+              || (userName.charAt(cont) == ']'))
+              htmlspecialchars = true;
+            cont++;
+          }
+
+          if (htmlspecialchars) {
+            swal('', 'Los campos no pueden contener espacios en blanco,\nni los siguentes caracteres: / \\ { } ( ) [ ] < > \' "', 'error');
+            document.getElementById("nameUser").focus();
+            return false;
+          }
+
+          // Verificamos el formato de password-->
+          var cont = 0;
+
+          if (maxLenghtPassword < p1.length) {
+            swal('', 'La contraseña debe tener 10 caracteres como máximo', 'error')
+            document.getElementById("loginPassword").focus();
+            return false;
+          }
+
+          while (!htmlspecialchars && (cont < p1.length)) {
+            if ((p1.charAt(cont) == " ") || (p1.charAt(cont) == "/") || (p1.charAt(cont) == "\\")
+              || (p1.charAt(cont) == "{") || (p1.charAt(cont) == "}")  || (p1.charAt(cont) == "(")
+              || (p1.charAt(cont) == ")") || (p1.charAt(cont) == "<") || (p1.charAt(cont) == ">")
+              || (p1.charAt(cont) == "'")  || (p1.charAt(cont) == '"') || (p1.charAt(cont) == '[')
+              || (p1.charAt(cont) == ']'))
+              htmlspecialchars = true;
+            cont ++;
+          }
+
+          if (htmlspecialchars) {
+        	  swal('', 'Los campos no pueden contener espacios en blanco,\nni los siguentes caracteres: / \\ { } ( ) [ ] < > \' "', 'error');
+            document.getElementById("loginPassword").focus();
+            return false;
+          }
+        }
+      </script>
+    
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

@@ -47,7 +47,7 @@ if(request.getSession().getAttribute("login") != null){
           <div class="collapse navbar-collapse" id="navbar">
             <ul class="navbar-nav ml-auto">
               <li class="mt-2 mr-5">
-                <p class="designed-by">Bienvenido, <b>Invitado</b></p>
+                <p class="designed-by">Bienvenid@, <b>Invitad@</b></p>
               </li>
               <li class="nav-item">
                   <form action="Controller" method="post">

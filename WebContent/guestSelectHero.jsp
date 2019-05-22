@@ -55,7 +55,7 @@ if(request.getSession().getAttribute("login") != null){
           <div class="collapse navbar-collapse" id="navbar">
             <ul class="navbar-nav ml-auto">
               <li class="mt-2 mr-5">
-                <p class="designed-by">Bienvenido, <b>Invitado</b></p>
+                <p class="designed-by">Bienvenid@, <b>Invitad@</b></p>
               </li>
               
               <li class="nav-item">
@@ -102,7 +102,7 @@ if(request.getSession().getAttribute("login") != null){
         	
         	 stmt = con.createStatement();
 
-        	 rs = stmt.executeQuery("SELECT * FROM plantilla_heroe");
+        	 rs = stmt.executeQuery("SELECT * FROM PLANTILLA_HEROE");
         	
         	
                 //stmt = con.prepareStatement("SELECT * FROM heroe_plantilla");
@@ -115,18 +115,18 @@ if(request.getSession().getAttribute("login") != null){
              %>
 	            <div class="col-12 col-md-6 col-lg-4 mb-4">
 	            <div class="card">
-	              <img class="card-img-top" src="<%= rs.getString("avatar_heroe") %>" alt="<%= rs.getString("nombre") %>">
+	              <img class="card-img-top" src="<%= rs.getString("PLANTILLA_HEROE_AVATAR") %>" alt="<%= rs.getString("PLANTILLA_HEROE_NOMBRE") %>">
 	              <div class="card-body">
 	                <div class="badges">
-	                  <span class="badge badge-warning"><%= rs.getString("super_poder_1") %></span>
-	                  <span class="badge badge-info"><%= rs.getString("super_poder_2") %></span>
+	                  <span class="badge badge-warning"><%= rs.getString("PLANTILLA_HEROE_SUPER_PODER_1") %></span>
+	                  <span class="badge badge-info"><%= rs.getString("PLANTILLA_HEROE_SUPER_PODER_2") %></span>
 	                </div>
-	                <h5 class="card-title"><%= rs.getString("nombre") %></h5>
-	                <p class="card-text"><%= rs.getString("descripcion") %></p>
+	                <h5 class="card-title"><%= rs.getString("PLANTILLA_HEROE_NOMBRE") %></h5>
+	                <p class="card-text"><%= rs.getString("PLANTILLA_HEROE_DESCRIPCION") %></p>
 	                <form action="guestCargarPartida.jsp">
 	                	<div class="centrado">
 	                		<input class="  btn btn-blue  mb-2 pl-5 pr-5" type="submit" name="hero" value="Seleccionar" />
-	                		<input type="hidden" value=<%=rs.getInt("id_plantilla") %> name="id_plantilla"/>
+	                		<input type="hidden" value=<%=rs.getInt("PLANTILLA_HEROE_ID") %> name="id_plantilla"/>
 	                	</div>
 	                </form>
 	              </div>
