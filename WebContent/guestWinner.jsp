@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@page import="java.net.*" %>
-<%@page import="entidades.PersonajeHeroe" %>
 <%@page import="entidades.Usuario" %>
+
 <%
 //Verificacion de variable de sesión login
 if(request.getSession().getAttribute("login") != null){ 
@@ -12,17 +12,12 @@ if(request.getSession().getAttribute("login") != null){
  	rd.forward(request, response);
 	}
 
-
-
 %>
-    
-    
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Stage 1</title>
+<title>Has vencido !!</title>
 
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 <link href="bootstrap/css/main.css" rel="stylesheet" type="text/css"/>
@@ -38,6 +33,8 @@ if(request.getSession().getAttribute("login") != null){
           <b class="ml-5">ZELDA'S JOURNEY</b> <i class="ml-3 designed-by">the challenge</i>
         </span>   
         
+                
+        
         <%--Bienvenido (usuario) y boton Desconectar --%>
         
                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,7 +44,7 @@ if(request.getSession().getAttribute("login") != null){
           <div class="collapse navbar-collapse" id="navbar">
             <ul class="navbar-nav ml-auto">
               <li class="mt-2 mr-5">
-                <p class="designed-by">Bienvenid@, <b>Invitad@</b></p>
+                <p class="designed-by">Bienvenido, <b>Invitado</b></p>
               </li>
               <li class="nav-item">
                   <form action="Controller" method="post">
@@ -57,43 +54,42 @@ if(request.getSession().getAttribute("login") != null){
                 </li>
             </ul>
           </div>
-              
+          </div>    
       </div>
 
     </nav>
     <!-- /Header -->
 
-<section id="personajes" class="mt-4 mb-4 pt-4 pb-4 fondo-verde-claro">
+	<!-- Main -->
+	<section id="winner" class="mt-4 mb-4 fondo-amarillo">
       <div class="container  ">
-        <div class="row col-8 offset-2 mt-3">
+        <div class="row col-8 offset-2 mt-3 centrado">
           <div class="col text-center mt-3 mb-3  ">
-            <h2 class="pb-2 sin-fondo ">Stage 1    Fight!!</h2>
+            <h2 class=" sin-fondo ">Felicitaciones !! <br>Has vencido en <i>The Challenge</i></h2>
           </div>
         </div>
-        <div class="row centrado">
-          <div class="col-12 col-md-6 col-lg-2  mb-4">
-            <div class="card ">
-              <img class="card-img-top" src="images/link.jpg" alt="Héroe seleccionado">
-            </div>
+        <div class="row centrado ">
+          <div class="col-lg-6 ">
+          	<img class="card-img-top mb-5" src="images/winner.jpg" alt="Has vencido"/>
           </div>
-          <div class="col-12 col-md-6 col-lg-2 mb-4 ml-5 mr-5">
-            <div class="card ">
-              <img class="card-img" src="images/versus.png" alt="versus">
-				
-            </div>
-			<div class="centrado">
-				<a href="guestWinner.jsp" class="  btn btn-blue  mb-2 mt-5 ">Luchar !</a>
+			<div class="col-lg-4">
+							<div class="row centrado">
+			<div class="col-lg-10 mt-5 pt-3 ">
+        		<a class="btn btn-blue btn-block offset-2" href="menu.jsp">Volver a jugar</a>
+        	</div>
 			</div>
-          </div>
-          <div class="col-12 col-md-6 col-lg-2 mb-4">
-            <div class="card ">
-              <img class="card-img-top "  src="images/wonderWoman.jpg" alt="Wonder Woman">
-            </div>
-          </div>
+										<div class="row centrado">
+			<div class="col-lg-10 mt-5 pt-5 ">
+        		<a class="btn btn-magenta btn-block offset-2" href="index.jsp">Salir</a>
+        	</div>
+			</div>
+			</div>
+			
+			
         </div>
       </div>
     </section>
-    <!-- /Speakers -->
+    <!-- /Main -->
 
     <!-- Footer -->
     <footer id="footer" class="pb-4 pt-4">

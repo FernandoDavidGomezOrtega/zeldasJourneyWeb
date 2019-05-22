@@ -40,7 +40,7 @@
           <div class="collapse navbar-collapse" id="navbar">
             <ul class="navbar-nav ml-auto">
               <li class="mt-2 mr-5">
-                <p class="designed-by">Bienvenido, <b><%
+                <p class="designed-by">Bienvenido/a, <b><%
 		if(request.getSession().getAttribute("login") != null){ 
 		  out.println(((Usuario) request.getSession().getAttribute("login")).getNick());
 		  
@@ -72,8 +72,8 @@
     </nav>
     <!-- /Header -->
 
-
-<section id="personajes" class="mt-4 mb-4 fondo-verde-claro">
+  <!-- Main -->
+<section id="personajes" class="mt-4 mb-4 pt-5 pb-5 fondo-verde-claro">
       <div class="container  ">
         <div class="row col-8 offset-2 mt-3">
           <div class="col text-center mt-3 mb-3  ">
@@ -83,33 +83,30 @@
         <div class="row centrado">
           <div class="col-12 col-md-6 col-lg-2  mb-4">
             <div class="card ">
-              <img class="card-img-top" src="<%(PersonajeHeroe) request.getSession().getAttribute("login").getAvatarHeroe(); %>" alt="<%  request.getSession().getAttribute("login").getNombre(); %>">
+              <img class="card-img-top" src="images/astro-boy.png">
             </div>
 
             
           </div>
           <div class="col-12 col-md-6 col-lg-2 mb-4 ml-5 mr-5">
             <div class="card ">
-              <img class="card-img" src="images/versus.png" alt="Capitán América">
+              <img class="card-img" src="images/versus.png" alt="versus">
 				
             </div>
 			<div class="centrado">
-				<input class="  btn btn-blue  mb-2 mt-5 " type="submit" name="fight" value="Luchar !" />
-                <input name="lucha" type="hidden" value="ok" />
+				<a href="resultadoCombate.jsp" class="  btn btn-blue  mb-2 mt-5 ">Luchar !</a>
 			</div>
           </div>
           <div class="col-12 col-md-6 col-lg-2 mb-4">
             <div class="card ">
-              <img class="card-img-top "  src="images/wonderWoman.jpg" alt="Capitán América">
-              
+              <img class="card-img-top "  src="images/enemigo_comun_1.png" alt="Zombie">
             </div>
-                      
           </div>
         </div>
       </div>
     </section>
   
-    <!-- /Speakers -->
+    <!-- /Main -->
 
     <!-- Footer -->
     <footer id="footer" class="pb-4 pt-4">

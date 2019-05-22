@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@page import="java.net.*" %>
+<%@page import="entidades.Usuario" %>
 
 <%
 //Verificacion de variable de sesión login
@@ -30,7 +31,43 @@ if(request.getSession().getAttribute("login") == null){
         <span class="navbar-brand" >
           <img  src="images/link.jpg" alt="game logo">
           <b class="ml-5">ZELDA'S JOURNEY</b> <i class="ml-3 designed-by">the challenge</i>
-        </span>       
+        </span>  
+        
+                <%--Bienvenido (usuario) y boton Desconectar --%>
+        
+                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbar">
+            <ul class="navbar-nav ml-auto">
+              <li class="mt-2 mr-5">
+                <p class="designed-by">Bienvenido, <b><%
+		if(request.getSession().getAttribute("login") != null){ 
+		  out.println(((Usuario) request.getSession().getAttribute("login")).getNick());
+		  
+		} else out.println("Invitado");
+                
+                %></b></p>
+              </li>
+              
+              <%
+              if(request.getSession().getAttribute("login") != null){
+            	%>
+            	  <li class="nav-item">
+                  
+                  <form action="Controller" method="post">
+                  	<input type="hidden" value="logout" name="opcion"/>
+                  	<input class="btn btn-outline-primary" type="submit" name="salir" value="Desconectar"/>
+                  </form>
+                </li>
+                <%
+              }
+              %>
+              
+              
+            </ul>
+          </div>     
       </div>
 
     </nav>
@@ -51,12 +88,12 @@ if(request.getSession().getAttribute("login") == null){
 			<div class="col-lg-4">
 							<div class="row centrado">
 			<div class="col-lg-10 mt-5 pt-3 ">
-        		<a class="btn btn-blue btn-block offset-2" href="createOrSelect.jsp">Siguiente oponente</a>
+        		<a class="btn btn-blue btn-block offset-2" href="stage2.jsp">Siguiente oponente</a>
         	</div>
 			</div>
 										<div class="row centrado">
 			<div class="col-lg-10 mt-5 pt-5 ">
-        		<a class="btn btn-magenta btn-block offset-2" href="index.jsp">Guardar y salir</a>
+        		<a class="btn btn-magenta btn-block offset-2" href="doLogout.jsp">Guardar y salir</a>
         	</div>
 			</div>
 			</div>

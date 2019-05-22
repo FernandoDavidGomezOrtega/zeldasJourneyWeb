@@ -1,36 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
-<%@page import="dao.ConnectionDB"%>
-<%@page import="java.sql.Connection"%>
-<%@page import="dao.ConnectionDB"%>
-<%@page import="java.sql.Connection"%>
-<%@page import="java.net.*" %>
-<%@page import="java.sql.PreparedStatement" %>
-<%@page import="java.sql.ResultSet" %>
-<%@page import="java.sql.Statement" %>
-<%@page import="java.sql.SQLException" %>
-<%@page import="entidades.PersonajeHeroe" %>
 <%@page import="entidades.Usuario" %>
-<%@page import="dao.PersonajeHeroeDAO" %>
-<%@page import="java.net.*" %>
+<%@page import="entidades.PersonajeHeroe" %>
+<%@ page import="entidades.*" %>
+<%@ page import="dao.*" %>
+<%@ page import="java.sql.*" %>
 
-<%
-//Verificacion de variable de sesión login
-if(request.getSession().getAttribute("login") == null){ 
-	
-	String url ="/index.jsp"; 
-	RequestDispatcher rd = request.getServletContext().getRequestDispatcher(url);
- 	rd.forward(request, response);
-	}
 
-%>
+
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Seleccionar personaje</title>
+<title>Stage 1</title>
 
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 <link href="bootstrap/css/main.css" rel="stylesheet" type="text/css"/>
@@ -44,7 +28,8 @@ if(request.getSession().getAttribute("login") == null){
         <span class="navbar-brand" >
           <img  src="images/link.jpg" alt="game logo">
           <b class="ml-5">ZELDA'S JOURNEY</b> <i class="ml-3 designed-by">the challenge</i>
-        </span> 
+        </span>   
+        
         
         <%--Bienvenido (usuario) y boton Desconectar --%>
         
@@ -55,7 +40,7 @@ if(request.getSession().getAttribute("login") == null){
           <div class="collapse navbar-collapse" id="navbar">
             <ul class="navbar-nav ml-auto">
               <li class="mt-2 mr-5">
-                <p class="designed-by">Bienvenido/a, <b><%
+                <p class="designed-by">Bienvenido, <b><%
 		if(request.getSession().getAttribute("login") != null){ 
 		  out.println(((Usuario) request.getSession().getAttribute("login")).getNick());
 		  
@@ -81,89 +66,46 @@ if(request.getSession().getAttribute("login") == null){
               
             </ul>
           </div>
-        
               
       </div>
 
     </nav>
     <!-- /Header -->
 
-	<!-- Main -->
-	<section id="personajes" class="mt-4 mb-4 fondo-aqua-claro">
+  <!-- Main -->
+<section id="personajes" class="mt-4 mb-4 pt-5 pb-5 fondo-verde-claro">
       <div class="container  ">
         <div class="row col-8 offset-2 mt-3">
-          <div class="col text-center mt-3 mb-3 ">
-            
-            <h2 class="pb-2 ">Escoge tu Héroe</h2>
+          <div class="col text-center mt-3 mb-3  ">
+            <h2 class="pb-2 sin-fondo ">Stage 1    Fight!!</h2>
           </div>
         </div>
-        <div class="row">
-        
-        <% 
-        ResultSet rs = null;
-        Statement stmt =null;
-        ConnectionDB c =null;
-        Connection con =null;
-        try {
-                 
-        	 c = new ConnectionDB();
-             con = c.openConnection();
-        	String error = "";
-        	String url ="";
-        	PersonajeHeroeDAO hdao = null;
-        	PersonajeHeroe h=new PersonajeHeroe();
-        	
-        	 stmt = con.createStatement();
+        <div class="row centrado">
+          <div class="col-12 col-md-6 col-lg-2  mb-4">
+            <div class="card ">
+              <img class="card-img-top" src="images/astro-boy.png">
+            </div>
 
-        	 rs = stmt.executeQuery("SELECT * FROM PLANTILLA_HEROE");
-        	
-        	
-                //stmt = con.prepareStatement("SELECT * FROM heroe_plantilla");
-                //stmt.setInt(1,articulo.getIdArticulo());
-                //rs =stmt.executeQuery();
-                while (rs.next()) {
-                    
-                   
-                   
-             %>
-	            <div class="col-12 col-md-6 col-lg-4 mb-4">
-	            <div class="card">
-	              <img class="card-img-top" src=<%= rs.getString("PLANTILLA_HEROE_AVATAR") %> alt="Capitán América">
-	              <div class="card-body">
-	                <div class="badges">
-	                  <span class="badge badge-warning"><%= rs.getString("PLANTILLA_HEROE_SUPER_PODER_1") %></span>
-	                  <span class="badge badge-info"><%= rs.getString("PLANTILLA_HEROE_SUPER_PODER_2") %></span>
-	                </div>
-	                <h5 class="card-title"><%= rs.getString("PLANTILLA_HEROE_NOMBRE") %></h5>
-	                <p class="card-text"><%= rs.getString("PLANTILLA_HEROE_DESCRIPCION") %></p>
-	                <form action="cargarPartida.jsp">
-	                	<div class="centrado">
-	                		<input class="  btn btn-blue  mb-2 pl-5 pr-5" type="submit" name="hero" value="Seleccionar" />
-	                		<input type="hidden" value=<%=rs.getInt("PLANTILLA_HEROE_ID") %> name="id_plantilla"/>
-	                	</div>
-	                </form>
-	              </div>
-	            </div>
-	          </div>
-                   
-              <%
-                   
-                }                     
-            } catch (SQLException ex) {
-                //ex.printStackTrace();
-               // throw new Exception("Ha habido un problema al cargar los resultados "+ex.getMessage());
-            }finally
-            {
-                if (rs != null) rs.close(); //Cerramos el resulset
-                if (stmt != null) stmt.close();//Cerramos el Statement   
-                if (con != null) c.closeConnection(con);
-            }
-        
-        %>
-        
+            
+          </div>
+          <div class="col-12 col-md-6 col-lg-2 mb-4 ml-5 mr-5">
+            <div class="card ">
+              <img class="card-img" src="images/versus.png" alt="versus">
+				
+            </div>
+			<div class="centrado">
+				<a href="winner.jsp" class="  btn btn-blue  mb-2 mt-5 ">Luchar !</a>
+			</div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-2 mb-4">
+            <div class="card ">
+              <img class="card-img-top "  src="images/enemigo_comun_2.png" alt="Frankenstien">
+            </div>
+          </div>
         </div>
       </div>
     </section>
+  
     <!-- /Main -->
 
     <!-- Footer -->
